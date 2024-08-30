@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-splash',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashPage implements OnInit {
 
-  constructor() { }
+  constructor( private navCntrl: NavController) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.navCntrl.navigateForward(['/login'])
+    }, 3000);
   }
 
 }

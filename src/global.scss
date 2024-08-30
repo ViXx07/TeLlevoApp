@@ -35,3 +35,22 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+
+ion-content {
+    --background: #ffffff; /* Establece el color de fondo a blanco para ion-content */
+}
+
+input{
+    background-color: #ffffff;
+}
+label,p, h1, h2, h3, h4, h5, h6{
+    color: black;
+}
+hr{
+    background-color: black;
+}
+a{
+    color: var(--ion-color-secondary);
+    text-decoration: none;
+}
