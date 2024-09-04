@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-registro',
@@ -8,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class RegistroPage implements OnInit {
   rolSelecionado:string=''
 
-  constructor() { }
+  constructor(private navCtrl : NavController) { }
+
+  goLogin(){
+    this.navCtrl.navigateForward(['/login'])
+  }
 
   seleccionado(role: string){
     this.rolSelecionado = role;

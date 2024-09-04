@@ -25,10 +25,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 15px 0;
+    margin: 15px 1rem;
 }
+
 .inputs input{
-    margin: 0 1rem;
+    
     border-radius: 5px;
     height: 45px;
     text-align: left;
@@ -39,9 +40,14 @@
     margin: 15px 0;
     text-align: center;
 }
+
 .btn-principal{
-    margin: 15px 0;
-    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
 }
 
 
@@ -59,9 +65,14 @@
     display: flex; 
     flex-direction: row; 
     align-items: center; 
-    justify-content: left;
+    justify-content: center;
+    text-justify: center;
     gap: 5px;
 }
 .contenedor span, a {
     font-size: 15px;
+}
+
+.span-link{
+    color: #307FE3;
 }
