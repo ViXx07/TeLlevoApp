@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
+  rolSelecionado:string=''
 
   constructor() { }
 
+  seleccionado(role: string){
+    this.rolSelecionado = role;
+  }
+  isSelected(role: string): boolean {
+    return this.rolSelecionado === role;
+  }
+
   ngOnInit() {
+
   }
 
 }
