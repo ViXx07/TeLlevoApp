@@ -11,6 +11,11 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: '**',
+    loadChildren: () => import('./Pages/p404/p404.module').then( m => m.P404PageModule)
+  },
+
 ];
 
 @NgModule({
