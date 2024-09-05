@@ -1,0 +1,43 @@
+<div class="contenedor-form" id="paso1-pasajero">
+  <hr>
+  <section style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap:19px ;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#FFB800" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#FFB800" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#D9D9D9" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
+  </section>
+  <section>
+    <div class="inputs">
+      <label for="">Género *</label>
+      <select name="" id="" placeholder="seleccione">
+        <option value="" disabled selected>Selecione género</option>
+        <option value="">Femenino</option>
+        <option value="">Masculino</option>
+        <option value="">Otro</option>
+
+      </select>
+    </div>
+    <hr>
+    <div class="inputs">
+      <label for="">Aqui va el data picker *</label>
+      <select name="" id="" placeholder="seleccione">
+        <option value="" disabled selected>Selecione género</option>
+        <option value="">Femenino</option>
+        <option value="">Masculino</option>
+        <option value="">Otro</option>
+
+      </select>
+    </div>
+    <hr>
+    <div class="inputs">
+      <label for="">Correo electronico *</label>
+      <input placeholder="Ingrese apellido" type="text">
+    </div>
+    <hr>
+    <div class="contenedor-horizontal">
+      <span>¿Ya tienes cuenta?</span>
+      <span (click)="goLogin()" class="span-link">Inicia sesión</span>
+      <button (click)="validarPaso2()" class="boton-principal">Siguiente</button>
+    </div>
+  </section>
+
+</div>
