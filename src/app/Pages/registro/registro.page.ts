@@ -12,7 +12,7 @@ export class RegistroPage implements OnInit {
   constructor(private navCtrl : NavController) { }
   /* Validacion tipo usuario */
   rolSelecionado:string=''
-  mostrarPaso: number = 2;
+  mostrarPaso: number = 0;
   tipoRegistro:string=''
   /* Funciones de seleccionar tipo usuario */
   seleccionado(role: string){

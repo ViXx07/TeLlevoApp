@@ -34,27 +34,9 @@
   </div>
 
   <article *ngIf="tipoRegistro == 'pasajero'" class="contenedor-form" id="pasoPasajero">
-    <hr>
-    <section style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap:19px ;">
-      <svg (click)="goPaso1()" *ngIf="mostrarPaso == 1 || mostrarPaso == 2 || mostrarPaso == 3" xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#FFB800" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>      
-      
-      <svg (click)="goPaso2()" *ngIf="mostrarPaso == 2 || mostrarPaso == 3" xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#FFB800" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
-      <svg *ngIf="mostrarPaso == 1" xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#D9D9D9" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
-      
-      <svg *ngIf="mostrarPaso == 3" xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#FFB800" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
-      <svg *ngIf="mostrarPaso != 3" xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#D9D9D9" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
-    </section>
+    <app-paso1 *ngIf="mostrarPaso == 1"></app-paso1>
   </article>
   <article *ngIf="tipoRegistro == 'chofer'" class="contenedor-form" id="pasoChofer">
-    <hr>
-    <section style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap:19px ;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#FFB800" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#FFB800" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#D9D9D9" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
-    </section>
   </article>
 
-  <app-paso1 (pasoValidado1)="onPasoValidado1($event)" *ngIf="mostrarPaso == 1"></app-paso1>
-  <app-paso2 (pasoValidado2)="onPasoValidado2($event)" *ngIf="mostrarPaso == 2"></app-paso2>
-  <app-paso3 *ngIf="mostrarPaso == 3"></app-paso3>
 </ion-content>

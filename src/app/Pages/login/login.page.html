@@ -9,14 +9,14 @@
     <hr>
     <div class="inputs">
       <label for="">Usuario</label>
-      <input placeholder="Ingrese usuario" type="text">
+      <input [(ngModel)]="usuario" placeholder="Ingrese usuario" type="text">
     </div>
     <div class="inputs">
       <label for="">Contraseña</label>
-      <input placeholder="Ingrese contraseña" type="password">
+      <input [(ngModel)]="clave" placeholder="Ingrese contraseña" type="password">
     </div>
     <div class="btn-principal">
-      <button>Iniciar sesión</button>
+      <button (click)="Login()">Iniciar sesión</button>
       <span class="span-link">¿olvidaste tu contraseña?</span>
     </div>
     <hr>

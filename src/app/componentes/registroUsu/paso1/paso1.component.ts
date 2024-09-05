@@ -14,15 +14,37 @@ export class Paso1Component  implements OnInit {
 
   constructor(private navCtrl : NavController) { }
 
-  @Output() pasoValidado1 = new EventEmitter<boolean>();
 
+  mostrarPaso : number = 1 ;
+  contrasena1 : string = '';
+  contrasena2 : string = '';
+  correoElectronico : string = '';
 
   goLogin(){
-    this.navCtrl.navigateForward(['/login'])
+    this.navCtrl.navigateForward(['/login']);
   }
   validarPaso1(){
-    this.pasoValidado1.emit(true);
+    this.mostrarPaso = 2;
   }
+  validarPaso2(){
+    this.mostrarPaso = 3;
+  }
+  crearCuenta(){
+
+  }
+
+  goPaso1(){
+    if (this.mostrarPaso>1) {
+      this.mostrarPaso = 1;
+    }
+  }
+  goPaso2(){
+    if (this.mostrarPaso>2) {
+      this.mostrarPaso = 2;
+    }
+  }
+
+
   ngOnInit() {
   }
 

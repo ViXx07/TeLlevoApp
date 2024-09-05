@@ -18,7 +18,7 @@ ion-input{
     font-size: 16px;
     margin-bottom: 0.5rem;
 }
-.contenedor-form{
+.contenedor-form-padre{
     padding: 0 1.8rem;
     justify-content: center;
 }
@@ -41,4 +41,17 @@ ion-input{
     font-weight: bold;
     background-color: var(--ion-color-primary);
     border-radius: 5px;
+}
+select{
+    border-radius: 10px;
+    border-color: grey;
+    height: 45px;
+    text-align: left;
+    color: grey;
+    width: 217px;
+    box-sizing: border-box;
+}
+select option {
+    font-size: 30px; 
+    padding: 20px; 
 }
