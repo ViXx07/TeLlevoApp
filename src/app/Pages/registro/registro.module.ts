@@ -20,7 +20,7 @@ import { Paso3Component } from 'src/app/componentes/registroUsu/paso3/paso3.comp
     CommonModule,
     FormsModule,
     IonicModule,
-    RegistroPageRoutingModule
+    RegistroPageRoutingModule,
   ],
   declarations: [RegistroPage,Paso1Component,Paso2Component,Paso3Component]
 })

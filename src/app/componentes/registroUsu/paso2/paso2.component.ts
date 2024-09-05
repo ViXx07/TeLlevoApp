@@ -21,6 +21,11 @@ export class Paso2Component  implements OnInit {
     this.pasoValidado2.emit(true);
   }
 
+  toPaso1(){
+    
+
+  }
+
   ngOnInit() {}
 
 }
