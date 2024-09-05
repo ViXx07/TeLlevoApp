@@ -17,15 +17,15 @@ const routes: Routes = [
   },
   {
     path: 'splash',
-    loadChildren: () => import('./Pages/splash/splash.module').then( m => m.SplashPageModule)
+    loadChildren: () => import('./Pages/autenticacion/splash/splash.module').then( m => m.SplashPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./Pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./Pages/autenticacion/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'registro',
-    loadChildren: () => import('./Pages/registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./Pages/autenticacion/registro/registro.module').then( m => m.RegistroPageModule)
   },
 ];
 
