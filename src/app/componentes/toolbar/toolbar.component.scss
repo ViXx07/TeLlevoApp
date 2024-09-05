@@ -1,0 +1,16 @@
+.comp-footer {
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+
+.custom-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+  
+.custom-buttons ion-button {
+    flex: 1; /* Esto asegura que los botones ocupen espacio equitativo */
+    text-align: center;
+}
