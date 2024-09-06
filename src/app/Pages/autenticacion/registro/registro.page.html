@@ -34,9 +34,10 @@
   </div>
 
   <article *ngIf="tipoRegistro == 'pasajero'" class="contenedor-form" id="pasoPasajero">
-    <app-paso1 *ngIf="mostrarPaso == 1"></app-paso1>
+    <app-regis-usu *ngIf="mostrarPaso == 1"></app-regis-usu>
   </article>
   <article *ngIf="tipoRegistro == 'chofer'" class="contenedor-form" id="pasoChofer">
+    <app-regis-chof *ngIf="mostrarPaso == 1"></app-regis-chof>
   </article>
 
 </ion-content>
