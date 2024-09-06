@@ -48,7 +48,11 @@
       </select>
     </div>
     <hr>
-    
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="selectedDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
     <hr>
     <div class="inputs">
       <label for="">Correo electronico *</label>

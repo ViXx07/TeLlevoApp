@@ -16,7 +16,7 @@ export class RegisUsuComponent  implements OnInit {
   contrasena1       : string = '';
   contrasena2       : string = '';
   correoElectronico : string = '';
-
+  selectedDate: Date | null = null;
   constructor(private navCtrl : NavController) { }
   
   goLogin(){

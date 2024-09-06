@@ -23,6 +23,7 @@ export class RegisChofComponent  implements OnInit {
   contrasena1       : string = '';
   contrasena2       : string = '';
   
+  selectedDate: Date | null = null;
 
   validarPaso1(){
     this.mostrarPaso = 2;
