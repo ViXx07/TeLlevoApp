@@ -16,10 +16,6 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  goRegistro(){
-    this.navCtrl.navigateForward(['/registro']);
-  }
-
   Login(){
     if (this.usuario != '' && this.clave != '') {
       alert("Hiciste login redirecciona c:")

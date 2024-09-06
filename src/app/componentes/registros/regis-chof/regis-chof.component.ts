@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-regis-chof',
@@ -6,25 +6,32 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./regis-chof.component.scss'],
 })
 export class RegisChofComponent  implements OnInit {
+  constructor(private navCtrl : NavController) { }
+  
+  mostrarPaso       : number = 1 ;
+
   nombre            : string = '';
   apellido          : string = '';
   rut               : string = '';
+  
   genero            : string = '';
-  mostrarPaso       : number = 1 ;
+  correoElectronico : string = '';
+  
+  modelo            : string = '';
+  patente           : string = '';
+  
   contrasena1       : string = '';
   contrasena2       : string = '';
-  correoElectronico : string = '';
-
-  constructor(private navCtrl : NavController) { }
   
-  goLogin(){
-    this.navCtrl.navigateForward(['/login']);
-  }
+
   validarPaso1(){
     this.mostrarPaso = 2;
   }
   validarPaso2(){
     this.mostrarPaso = 3;
+  }
+  validarPaso3(){
+    this.mostrarPaso = 4;
   }
   crearCuenta(){
 
@@ -38,6 +45,11 @@ export class RegisChofComponent  implements OnInit {
   goPaso2(){
     if (this.mostrarPaso>2) {
       this.mostrarPaso = 2;
+    }
+  }
+  goPaso3(){
+    if (this.mostrarPaso>3) {
+      this.mostrarPaso = 3;
     }
   }
 

@@ -8,24 +8,28 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'splash',
     pathMatch: 'full'
   },
   {
+    path: '',
+    loadChildren: () => import('./Pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
     path: 'splash',
-    loadChildren: () => import('./Pages/splash/splash.module').then( m => m.SplashPageModule)
+    loadChildren: () => import('./Pages/autenticacion/splash/splash.module').then( m => m.SplashPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./Pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./Pages/autenticacion/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'registro',
-    loadChildren: () => import('./Pages/registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./Pages/autenticacion/registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
-    path: 'inicio',
-    loadChildren: () => import('./Pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    path: 'recupera-password',
+    loadChildren: () => import('./Pages/autenticacion/recupera-password/recupera-password.module').then( m => m.RecuperaPasswordPageModule)
   },
 
 ];

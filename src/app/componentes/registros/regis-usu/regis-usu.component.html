@@ -30,7 +30,7 @@
     <hr>
     <div class="contenedor-horizontal">
       <span>¿Ya tienes cuenta?</span>
-      <span (click)="goLogin()" class="span-link">Inicia sesión</span>
+      <a [routerLink]="['/login']">Inicia sesión</a>
       <button (click)="validarPaso1()" class="boton-principal">Siguiente</button>
     </div>
   </section>
@@ -57,7 +57,7 @@
     <hr>
     <div class="contenedor-horizontal">
       <span>¿Ya tienes cuenta?</span>
-      <span (click)="goLogin()" class="span-link">Inicia sesión</span>
+      <a [routerLink]="['/login']">Inicia sesión</a>
       <button (click)="validarPaso2()" class="boton-principal">Siguiente</button>
     </div>
   </section>
@@ -73,7 +73,7 @@
     <hr>
     <div class="contenedor-horizontal">
       <span>¿Ya tienes cuenta?</span>
-      <span (click)="goLogin()" class="span-link">Inicia sesión</span>
+      <a [routerLink]="['/login']">Inicia sesión</a>
       <button (click)="crearCuenta()" class="boton-principal">Siguiente</button>
     </div>
   </section>
