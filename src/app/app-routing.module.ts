@@ -27,8 +27,18 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./Pages/autenticacion/registro/registro.module').then( m => m.RegistroPageModule)
   },
+<<<<<<< HEAD
 ];
 
+=======
+  {
+    path: 'inicio',
+    loadChildren: () => import('./Pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+
+];
+
+>>>>>>> 3eee79fa96c6503858ff0a5ca6cef5f34744be65
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
