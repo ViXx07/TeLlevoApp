@@ -8,29 +8,21 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'splash',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
-    path: '',
-    loadChildren: () => import('./Pages/inicio/inicio.module').then( m => m.InicioPageModule)
-  },
-  {
     path: 'splash',
-    loadChildren: () => import('./Pages/autenticacion/splash/splash.module').then( m => m.SplashPageModule)
+    loadChildren: () => import('./Pages/splash/splash.module').then( m => m.SplashPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./Pages/autenticacion/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./Pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'registro',
-    loadChildren: () => import('./Pages/autenticacion/registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./Pages/registro/registro.module').then( m => m.RegistroPageModule)
   },
-<<<<<<< HEAD
-];
-
-=======
   {
     path: 'inicio',
     loadChildren: () => import('./Pages/inicio/inicio.module').then( m => m.InicioPageModule)
@@ -38,7 +30,6 @@ const routes: Routes = [
 
 ];
 
->>>>>>> 3eee79fa96c6503858ff0a5ca6cef5f34744be65
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
