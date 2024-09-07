@@ -30,41 +30,38 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () => import('./Pages/p404/p404.module').then( m => m.P404PageModule)
-  },  {
-    path: 'home',
-    loadChildren: () => import('./pages/pasajero/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'home-pasajero',
-    loadChildren: () => import('./pages/pasajero/home-pasajero/home-pasajero.module').then( m => m.HomePasajeroPageModule)
+    loadChildren: () => import('./Pages/pasajero/home-pasajero/home-pasajero.module').then( m => m.HomePasajeroPageModule)
   },
   {
     path: 'home-chofer',
-    loadChildren: () => import('./pages/chofer/home-chofer/home-chofer.module').then( m => m.HomeChoferPageModule)
+    loadChildren: () => import('./Pages/chofer/home-chofer/home-chofer.module').then( m => m.HomeChoferPageModule)
   },
   {
     path: 'perfil-pasajero',
-    loadChildren: () => import('./pages/pasajero/perfil-pasajero/perfil-pasajero.module').then( m => m.PerfilPasajeroPageModule)
+    loadChildren: () => import('./Pages/pasajero/perfil-pasajero/perfil-pasajero.module').then( m => m.PerfilPasajeroPageModule)
   },
   {
     path: 'qr-pasajero',
-    loadChildren: () => import('./pages/pasajero/qr-pasajero/qr-pasajero.module').then( m => m.QrPasajeroPageModule)
+    loadChildren: () => import('./Pages/pasajero/qr-pasajero/qr-pasajero.module').then( m => m.QrPasajeroPageModule)
   },
   {
     path: 'misviajes-pasajero',
-    loadChildren: () => import('./pages/pasajero/misviajes-pasajero/misviajes-pasajero.module').then( m => m.MisviajesPasajeroPageModule)
+    loadChildren: () => import('./Pages/pasajero/misviajes-pasajero/misviajes-pasajero.module').then( m => m.MisviajesPasajeroPageModule)
   },
   {
     path: 'misviajes-chofer',
-    loadChildren: () => import('./pages/chofer/misviajes-chofer/misviajes-chofer.module').then( m => m.MisviajesChoferPageModule)
+    loadChildren: () => import('./Pages/chofer/misviajes-chofer/misviajes-chofer.module').then( m => m.MisviajesChoferPageModule)
   },
   {
     path: 'perfil-chofer',
-    loadChildren: () => import('./pages/chofer/perfil-chofer/perfil-chofer.module').then( m => m.PerfilChoferPageModule)
+    loadChildren: () => import('./Pages/chofer/perfil-chofer/perfil-chofer.module').then( m => m.PerfilChoferPageModule)
   },
   {
     path: 'qr-chofer',
-    loadChildren: () => import('./pages/chofer/qr-chofer/qr-chofer.module').then( m => m.QrChoferPageModule)
+    loadChildren: () => import('./Pages/chofer/qr-chofer/qr-chofer.module').then( m => m.QrChoferPageModule)
   },
 
 ];
