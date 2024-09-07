@@ -10,7 +10,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'splash',
     pathMatch: 'full'
-  },
+  }, 
   {
     path: '',
     loadChildren: () => import('./Pages/inicio/inicio.module').then( m => m.InicioPageModule)
@@ -26,10 +26,6 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./Pages/autenticacion/registro/registro.module').then( m => m.RegistroPageModule)
-  },
-  {
-    path: '**',
-    loadChildren: () => import('./Pages/p404/p404.module').then( m => m.P404PageModule)
   },
   {
     path: 'home-pasajero',
@@ -62,6 +58,11 @@ const routes: Routes = [
   {
     path: 'qr-chofer',
     loadChildren: () => import('./Pages/chofer/qr-chofer/qr-chofer.module').then( m => m.QrChoferPageModule)
+  },
+  /* La página de error siempre debe quedar al final para que no genere conflictos */
+  {
+    path: '**',
+    loadChildren: () => import('./Pages/p404/p404.module').then( m => m.P404PageModule)
   },
 
 ];
