@@ -12,11 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '**',
-    loadChildren: () => import('./Pages/p404/p404.module').then( m => m.P404PageModule)
-  },
-
-  {
     path: '',
     loadChildren: () => import('./Pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
@@ -31,6 +26,10 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./Pages/autenticacion/registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./Pages/p404/p404.module').then( m => m.P404PageModule)
   },
 ];
 
