@@ -12,6 +12,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: '**',
+    loadChildren: () => import('./Pages/p404/p404.module').then( m => m.P404PageModule)
+  },
+
+  {
     path: '',
     loadChildren: () => import('./Pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
