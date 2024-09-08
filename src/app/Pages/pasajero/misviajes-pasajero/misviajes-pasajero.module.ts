@@ -8,12 +8,15 @@ import { MisviajesPasajeroPageRoutingModule } from './misviajes-pasajero-routing
 
 import { MisviajesPasajeroPage } from './misviajes-pasajero.page';
 
+import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MisviajesPasajeroPageRoutingModule
+    MisviajesPasajeroPageRoutingModule,
+    ModuloModule
   ],
   declarations: [MisviajesPasajeroPage]
 })

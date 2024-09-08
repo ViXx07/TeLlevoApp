@@ -8,12 +8,15 @@ import { PerfilPasajeroPageRoutingModule } from './perfil-pasajero-routing.modul
 
 import { PerfilPasajeroPage } from './perfil-pasajero.page';
 
+import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilPasajeroPageRoutingModule
+    PerfilPasajeroPageRoutingModule,
+    ModuloModule
   ],
   declarations: [PerfilPasajeroPage]
 })

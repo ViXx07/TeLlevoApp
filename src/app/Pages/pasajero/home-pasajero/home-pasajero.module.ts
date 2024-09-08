@@ -8,12 +8,15 @@ import { HomePasajeroPageRoutingModule } from './home-pasajero-routing.module';
 
 import { HomePasajeroPage } from './home-pasajero.page';
 
+import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePasajeroPageRoutingModule
+    HomePasajeroPageRoutingModule,
+    ModuloModule
   ],
   declarations: [HomePasajeroPage]
 })
