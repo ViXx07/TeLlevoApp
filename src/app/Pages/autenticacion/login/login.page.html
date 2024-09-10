@@ -17,12 +17,12 @@
     </div>
     <div class="btn-principal">
       <button (click)="Login()">Iniciar sesión</button>
-      <span class="span-link">¿olvidaste tu contraseña?</span>
+      <a [routerLink]="['/recupera-password']">¿Olvidaste tu contraseña?</a>
     </div>
     <hr>
     <div class="contenedor">
       <span>¿No tienes cuenta?</span>
-      <span class="span-link" (click)="goRegistro()" >Registrate</span> <!-- falta darle estilo azul -->
+      <a [routerLink]="['/registro']">Registrate</a>
     </div>
   </div>
 </ion-content>

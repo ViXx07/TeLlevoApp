@@ -16,11 +16,11 @@ export class RegisUsuComponent  implements OnInit {
   contrasena1       : string = '';
   contrasena2       : string = '';
   correoElectronico : string = '';
-
+  selectedDate: Date | null = null;
   constructor(private navCtrl : NavController) { }
   
   goLogin(){
-    this.navCtrl.navigateForward(['/login']);
+    this.navCtrl.navigateBack(['/login']);
   }
   validarPaso1(){
     this.mostrarPaso = 2;

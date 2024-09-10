@@ -28,6 +28,11 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/autenticacion/registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
+    path: 'recupera-password',
+    loadChildren: () => import('./Pages/autenticacion/recupera-password/recupera-password.module').then( m => m.RecuperaPasswordPageModule)
+  },
+
+  {
     path: 'home-pasajero',
     loadChildren: () => import('./Pages/pasajero/home-pasajero/home-pasajero.module').then( m => m.HomePasajeroPageModule)
   },
