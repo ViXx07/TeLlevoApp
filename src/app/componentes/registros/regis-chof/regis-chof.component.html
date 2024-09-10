@@ -43,7 +43,7 @@
   <section>
     <div class="inputs">
       <label for="">Género *</label>
-      <select [(ngModel)]="genero"  name="" id="" placeholder="seleccione">
+      <select class="medio-input" [(ngModel)]="genero"  name="" id="" placeholder="seleccione">
         <option value="" disabled selected>Selecione género</option>
         <option value="Femenino">Femenino</option>
         <option value="Masculino">Masculino</option>
@@ -51,11 +51,13 @@
       </select>
     </div>
     <hr>
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="selectedDate">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <div class="inputs">
+      <mat-form-field class="medio-input" style="width: 250px; height: 100px;">
+        <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="selectedDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
     <hr>
     <div class="inputs">
       <label for="">Correo electronico *</label>
