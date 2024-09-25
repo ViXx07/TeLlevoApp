@@ -66,9 +66,18 @@ const routes: Routes = [
   },
   /* La página de error siempre debe quedar al final para que no genere conflictos */
   {
+    path: 'crear-viaje',
+    loadChildren: () => import('./Pages/chofer/crear-viaje/crear-viaje.module').then( m => m.CrearViajePageModule)
+  },
+  {
+    path: 'mod-viaje',
+    loadChildren: () => import('./Pages/chofer/mod-viaje/mod-viaje.module').then( m => m.ModViajePageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./Pages/p404/p404.module').then( m => m.P404PageModule)
   },
+  
 
 ];
 
