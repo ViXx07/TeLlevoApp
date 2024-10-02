@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { Usuario } from 'src/app/model/Usuario';
-import { CrudUsuarioService } from 'src/app/servicio/usuario/crud-usuario.service';
+import { Pasajero } from 'src/app/model/Pasajero';
+import { CrudPasajeroService } from 'src/app/servicio/pasajero/crud-pasajero.service';
 
 @Component({
   selector: 'app-regis-usu',
@@ -12,7 +12,7 @@ export class RegisUsuComponent  implements OnInit {
   mostrarPaso       : number = 1 ;
   contrasena2: string = '';
 
-  usuario : Usuario = {
+  usuario : Pasajero = {
     rut: '',
     nombre: '',
     apellido: '',
@@ -20,13 +20,14 @@ export class RegisUsuComponent  implements OnInit {
     genero: '',
     fecha_nac: null,
     contrasena: '',
+    tipo: 'pasajero',
   };
 
 
 
 
   constructor(private navCtrl : NavController,
-              private crudUsuario: CrudUsuarioService,
+              private crudPasajero: CrudPasajeroService,
   ) { }
   
   goLogin(){
@@ -55,7 +56,7 @@ export class RegisUsuComponent  implements OnInit {
   /* CRUD */
 
   grabar(){
-    this.crudUsuario.grabar(this.usuario).then(()=>{
+    this.crudPasajero.grabarPasajero(this.usuario).then(()=>{
       alert("grabó");
     }).catch(err => {
       alert(err + " No grabó")

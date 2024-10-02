@@ -1,6 +1,6 @@
 
 
-export interface Usuario {
+export interface Pasajero {
     id?: string;
     rut: string;
     nombre: string;
@@ -9,5 +9,5 @@ export interface Usuario {
     genero: string;
     fecha_nac: Date | null;
     contrasena: string;
-
+    tipo:string;
 }
