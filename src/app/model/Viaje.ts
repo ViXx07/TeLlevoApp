@@ -3,5 +3,5 @@ export interface Viaje {
     destino: string;
     hora_inicio: number;
     punto_encuentro: string;
-    valor: number;
+    valor: number; 
 }
