@@ -12,5 +12,6 @@ describe('CrudUsuarioService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
-  });
+  }); 
+  
 });
