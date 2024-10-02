@@ -1,3 +1,10 @@
+.paginacion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 19px;
+}
 .inputs{
     display: flex;
     flex-direction: column;

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Usuario } from 'src/app/model/Usuario';
+import { CrudUsuarioService } from 'src/app/servicio/usuario/crud-usuario.service';
 
 @Component({
   selector: 'app-regis-usu',
@@ -8,22 +10,24 @@ import { NavController } from '@ionic/angular';
 })
 export class RegisUsuComponent  implements OnInit {
   mostrarPaso       : number = 1 ;
+  contrasena2: string = '';
 
-  usuario = {
+  usuario : Usuario = {
+    rut: '',
     nombre: '',
     apellido: '',
-    rut: '',
-    genero: '',
     correoElectronico: '',
-    contrasena1: '',
-    contrasena2: '',
-    selectedDate: null as Date | null
+    genero: '',
+    fecha_nac: null,
+    contrasena: '',
   };
 
 
 
 
-  constructor(private navCtrl : NavController) { }
+  constructor(private navCtrl : NavController,
+              private crudUsuario: CrudUsuarioService,
+  ) { }
   
   goLogin(){
     this.navCtrl.navigateBack(['/login']);
@@ -34,9 +38,7 @@ export class RegisUsuComponent  implements OnInit {
   validarPaso2(){
     this.mostrarPaso = 3;
   }
-  crearCuenta(){
 
-  }
 
   goPaso1(){
     if (this.mostrarPaso>1) {
@@ -48,6 +50,18 @@ export class RegisUsuComponent  implements OnInit {
       this.mostrarPaso = 2;
     }
   }
+
+
+  /* CRUD */
+
+  grabar(){
+    this.crudUsuario.grabar(this.usuario).then(()=>{
+      alert("grabó");
+    }).catch(err => {
+      alert(err + " No grabó")
+    });
+  }
+
 
 
   ngOnInit() {
