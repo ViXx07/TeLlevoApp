@@ -17,15 +17,15 @@
     
     <div class="inputs">
       <label for="">Nombre *</label>
-      <input [(ngModel)]="nombre" placeholder="Ingrese nombre" type="text">
+      <input [(ngModel)]="usuario.nombre" placeholder="Ingrese nombre" type="text">
     </div>
     <div class="inputs">
       <label for="">Apellido *</label>
-      <input [(ngModel)]="apellido" placeholder="Ingrese apellido" type="text">
+      <input [(ngModel)]="usuario.apellido" placeholder="Ingrese apellido" type="text">
     </div>
     <div class="inputs">
       <label for="">Rut *</label>
-      <input [(ngModel)]="rut" placeholder="Ingrese rut" type="text">
+      <input [(ngModel)]="usuario.rut" placeholder="Ingrese rut" type="text">
     </div>
     <hr>
     <div class="contenedor-horizontal">
@@ -40,7 +40,7 @@
   <section>
     <div class="inputs">
       <label for="">Género *</label>
-      <select [(ngModel)]="genero"  name="" id="" placeholder="seleccione">
+      <select [(ngModel)]="usuario.genero"  name="" id="" placeholder="seleccione">
         <option value="" disabled selected>Selecione género</option>
         <option value="Femenino">Femenino</option>
         <option value="Masculino">Masculino</option>
@@ -49,14 +49,14 @@
     </div>
     <hr>
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="selectedDate">
+      <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="usuario.selectedDate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <hr>
     <div class="inputs">
       <label for="">Correo electronico *</label>
-      <input [(ngModel)]="correoElectronico" placeholder="Ingrese correo electronico" type="text" type="email">
+      <input [(ngModel)]="usuario.correoElectronico" placeholder="Ingrese correo electronico" type="text" type="email">
     </div>
     <hr>
     <div class="contenedor-horizontal">
@@ -71,8 +71,8 @@
   <section>
     <div class="inputs">
       <label for="">Contraseña *</label>
-      <input [(ngModel)]="contrasena1" placeholder="Ingrese contraseña" type="password" type="password">
-      <input [(ngModel)]="contrasena2" placeholder="Ingrese contraseña" type="password" type="password">
+      <input [(ngModel)]="usuario.contrasena1" placeholder="Ingrese contraseña" type="password" type="password">
+      <input [(ngModel)]="usuario.contrasena2" placeholder="Ingrese contraseña" type="password" type="password">
     </div>
     <hr>
     <div class="contenedor-horizontal">

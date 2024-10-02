@@ -7,16 +7,22 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./regis-usu.component.scss'],
 })
 export class RegisUsuComponent  implements OnInit {
-
-  nombre            : string = '';
-  apellido          : string = '';
-  rut               : string = '';
-  genero            : string = '';
   mostrarPaso       : number = 1 ;
-  contrasena1       : string = '';
-  contrasena2       : string = '';
-  correoElectronico : string = '';
-  selectedDate: Date | null = null;
+
+  usuario = {
+    nombre: '',
+    apellido: '',
+    rut: '',
+    genero: '',
+    correoElectronico: '',
+    contrasena1: '',
+    contrasena2: '',
+    selectedDate: null as Date | null
+  };
+
+
+
+
   constructor(private navCtrl : NavController) { }
   
   goLogin(){
