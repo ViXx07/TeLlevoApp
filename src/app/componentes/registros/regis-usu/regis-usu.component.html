@@ -16,9 +16,13 @@
     <p class="p-importante">Datos personales</p>
     
     <div class="inputs">
-      <label for="">Nombre *</label>
-      <input [(ngModel)]="usuario.nombre" placeholder="Ingrese nombre" type="text">
+      <!-- Aqui tengo el label small solo se activa si errNombre es true -->
+      <label for="">Nombre * <small *ngIf="errNombre" class="errores">Ingrese nombre valido</small></label>
+      <!-- Blur te llama a la funcion cuando se sale del input -->
+      <!-- ngClass se utiliza cuando errNombre de true se aplica erroresm si da false no aplica nada c:  -->
+      <input [(ngModel)]="usuario.nombre"  (blur)="vNombre()" [ngClass]="{'errores': errNombre}"   placeholder="Ingrese nombre" type="text">
     </div>
+
     <div class="inputs">
       <label for="">Apellido *</label>
       <input [(ngModel)]="usuario.apellido" placeholder="Ingrese apellido" type="text">

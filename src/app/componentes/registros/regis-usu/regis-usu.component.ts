@@ -11,6 +11,8 @@ import { CrudPasajeroService } from 'src/app/servicio/pasajero/crud-pasajero.ser
 export class RegisUsuComponent  implements OnInit {
   mostrarPaso       : number = 1 ;
   contrasena2: string = '';
+  /* bool manejo imputs */
+  errNombre : boolean = false;
 
   usuario : Pasajero = {
     rut: '',
@@ -23,10 +25,13 @@ export class RegisUsuComponent  implements OnInit {
     tipo: 'pasajero',
   };
 
+  
   constructor(private navCtrl : NavController,
-              private crudPasajero: CrudPasajeroService,
+    private crudPasajero: CrudPasajeroService,
   ) { }
   
+  vNombre(){this.errNombre = this.usuario.nombre === ''}
+
   goLogin(){
     this.navCtrl.navigateBack(['/login']);
   }
