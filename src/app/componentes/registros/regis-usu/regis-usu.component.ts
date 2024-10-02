@@ -23,9 +23,6 @@ export class RegisUsuComponent  implements OnInit {
     tipo: 'pasajero',
   };
 
-
-
-
   constructor(private navCtrl : NavController,
               private crudPasajero: CrudPasajeroService,
   ) { }
@@ -34,6 +31,11 @@ export class RegisUsuComponent  implements OnInit {
     this.navCtrl.navigateBack(['/login']);
   }
   validarPaso1(){
+    if (this.usuario.nombre!='') {
+    
+    } else {
+      
+    }
     this.mostrarPaso = 2;
   }
   validarPaso2(){
