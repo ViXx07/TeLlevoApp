@@ -1,0 +1,17 @@
+ACTUALIZAR LA RAMA PRINCIPAL CON TU RAMA DE TRABAJO:
+
+1. Cambiar a la rama principal:
+ 
+>   git checkout main 
+
+2. Fusionar la rama principal con tu rama:
+
+>   git merge <nombre rama>
+
+3. Se termina la fusión con un commit 
+
+>   git commit 
+
+ACTUALIZAR DATOS EN TU RAMA CON LOS DE LA RAMA PRINCIPAL:
+>   git checkout <nombre rama>
+>   git pull origin main 
