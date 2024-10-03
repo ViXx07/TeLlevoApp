@@ -28,16 +28,16 @@ export class RegisUsuComponent  implements OnInit {
   errNombre      : boolean = false;
   errApellido    : boolean = false;
   errRut         : boolean = false;
-  errCorreo      : boolean = false;
   errGenero      : boolean = false;
+  errCorreo      : boolean = false;
   errNacimiento  : boolean = false;
   errContrasena  : boolean = false;
   errContrasena2 : boolean = false;
   vNombre(){this.errNombre = this.usuario.nombre === '';}
   vApellido(){this.errApellido = this.usuario.apellido === ''}
   vRut   (){this.errRut    = this.usuario.rut    === ''}
-  vCorreo(){this.errCorreo = this.usuario.correoElectronico === ''}
   vGenero(){this.errGenero = this.usuario.genero === ''}
+  vCorreo(){this.errCorreo = this.usuario.correoElectronico === ''}
   /* vNacimiento(){this.errNacimiento = this.usuario.fecha_nac === ''} */
   vContrasena(){this.errContrasena = this.usuario.contrasena === ''}
   vcontrasena2(){this.errContrasena2 = this.contrasena2 === ''}
@@ -51,11 +51,12 @@ export class RegisUsuComponent  implements OnInit {
     this.navCtrl.navigateBack(['/login']);
   }
   validarPaso1(){
-
-    if (!this.errNombre && !this.errApellido && !this.errRut) {
-      alert(this.errNombre)
-    } else {
+    if (this.usuario.nombre != '' && this.usuario.apellido != '' && this.usuario.rut != '') {
       this.mostrarPaso = 2;
+    } else {
+      this.vNombre();
+      this.vApellido();
+      this.vRut();
     } 
   }
   validarPaso2(){
