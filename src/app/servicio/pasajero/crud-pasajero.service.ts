@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from 'src/app/model/Usuario';
-import { Observable } from 'rxjs';
 import {AngularFirestore} from '@angular/fire/compat/firestore'
+import { Pasajero } from 'src/app/model/Pasajero';
+
 @Injectable({
   providedIn: 'root'
 })
-export class CrudUsuarioService {
+export class CrudPasajeroService {
 
   constructor(private afs : AngularFirestore) { }
 
-  grabar (Usuario:Usuario){
-    return this.afs.collection('Usaurio').add(Usuario)
+  grabarPasajero(pasajero: Pasajero){
+    return this.afs.collection('pasajero').add(pasajero)
   }
-
 }

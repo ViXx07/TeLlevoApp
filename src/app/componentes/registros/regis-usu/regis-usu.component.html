@@ -1,6 +1,6 @@
 
 <hr>
-<article style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap:19px ;">
+<article class="paginacion">
   
   <svg (click)="goPaso1()" *ngIf="mostrarPaso == 1 || mostrarPaso == 2 || mostrarPaso == 3" xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24"><path fill="#FFB800" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>      
   
@@ -16,16 +16,21 @@
     <p class="p-importante">Datos personales</p>
     
     <div class="inputs">
-      <label for="">Nombre *</label>
-      <input [(ngModel)]="nombre" placeholder="Ingrese nombre" type="text">
+      <!-- Aqui tengo el label small solo se activa si errNombre es true -->
+      <label for="">Nombre * <small *ngIf="errNombre" class="errores">Ingrese nombre valido</small></label>
+      <!-- Blur te llama a la funcion cuando se sale del input -->
+      <!-- ngClass se utiliza cuando errNombre de true se aplica erroresm si da false no aplica nada c:  -->
+      <input [(ngModel)]="usuario.nombre"  (blur)="vNombre()" [ngClass]="{'errores': errNombre}"   placeholder="Ingrese nombre" type="text">
     </div>
+
     <div class="inputs">
-      <label for="">Apellido *</label>
-      <input [(ngModel)]="apellido" placeholder="Ingrese apellido" type="text">
+      <label for="">Apellido *  <small *ngIf="errApellido" class="errores">Ingrese apellido valido</small></label>
+      <input [(ngModel)]="usuario.apellido" (blur)="vApellido()" [ngClass]="{'errores': errApellido}" placeholder="Ingrese apellido" type="text">
     </div>
+
     <div class="inputs">
-      <label for="">Rut *</label>
-      <input [(ngModel)]="rut" placeholder="Ingrese rut" type="text">
+      <label for="">Rut * <small *ngIf="errRut" class="errores">Ingrese rut valido</small></label>
+      <input [(ngModel)]="usuario.rut" (blur)="vRut()" [ngClass]="{'errores': errRut}" placeholder="Ingrese rut" type="text">
     </div>
     <hr>
     <div class="contenedor-horizontal">
@@ -39,8 +44,8 @@
 <div *ngIf="mostrarPaso == 2" class="" id="paso2-pasajero">
   <section>
     <div class="inputs">
-      <label for="">Género *</label>
-      <select [(ngModel)]="genero"  name="" id="" placeholder="seleccione">
+      <label for="">Género * <small *ngIf="errGenero" class="errores">Seleccione genero</small></label>
+      <select [(ngModel)]="usuario.genero" (blur)="vGenero()" [ngClass]="{'errores': errGenero}" name="" id="" placeholder="seleccione">
         <option value="" disabled selected>Selecione género</option>
         <option value="Femenino">Femenino</option>
         <option value="Masculino">Masculino</option>
@@ -49,14 +54,14 @@
     </div>
     <hr>
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="selectedDate">
+      <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="usuario.fecha_nac">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <hr>
     <div class="inputs">
-      <label for="">Correo electronico *</label>
-      <input [(ngModel)]="correoElectronico" placeholder="Ingrese correo electronico" type="text" type="email">
+      <label for="">Correo electronico * <small *ngIf="errCorreo" class="errores">Ingrese correo valido</small></label>
+      <input [(ngModel)]="usuario.correoElectronico" (blur)="vCorreo()" [ngClass]="{'errores': errCorreo}" placeholder="Ingrese correo electronico" type="text" type="email">
     </div>
     <hr>
     <div class="contenedor-horizontal">
@@ -71,14 +76,14 @@
   <section>
     <div class="inputs">
       <label for="">Contraseña *</label>
-      <input [(ngModel)]="contrasena1" placeholder="Ingrese contraseña" type="password" type="password">
+      <input [(ngModel)]="usuario.contrasena" placeholder="Ingrese contraseña" type="password" type="password">
       <input [(ngModel)]="contrasena2" placeholder="Ingrese contraseña" type="password" type="password">
     </div>
     <hr>
     <div class="contenedor-horizontal">
       <span>¿Ya tienes cuenta?</span>
       <a [routerLink]="['/login']">Inicia sesión</a>
-      <button (click)="crearCuenta()" class="boton-principal">Siguiente</button>
+      <button (click)="grabar()" class="boton-principal">Crear Cuenta</button>
     </div>
   </section>
   
