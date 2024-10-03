@@ -9,7 +9,7 @@
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Bienvenido</ion-title>
+      <ion-title>Bienvenido {{ usuario }}</ion-title>
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -20,8 +20,11 @@
 <div class="ion-searchbar">
   <ion-searchbar style="margin-top: 70px;" animated="true" placeholder="Ingresa una direccion"></ion-searchbar>
 </div>
-<div>
+<!-- <div>
   <ion-content [fullscreen]="true">
     <img src="https://motor.elpais.com/wp-content/uploads/2022/01/google-maps-22.jpg">
   </ion-content>
-</div>
+</div> -->
+
+<!-- se agrega el componente de barra de navegación:  -->
+<app-toolbar></app-toolbar>
