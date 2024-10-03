@@ -10,20 +10,18 @@ export class RegisChofComponent  implements OnInit {
   
   mostrarPaso       : number = 1 ;
 
-  chofer = {
-    nombre: '',
-    apellido: '',
-    rut: '',
-    genero: '',
-    correoElectronico: '',
-    auto: {
-      modelo: '',
-      patente: ''
-    },
-    contrasena1: '',
-    contrasena2: '',
-    selectedDate: null as Date | null
-  };
+  nombre            : string = '';
+  apellido          : string = '';
+  rut               : string = '';
+  
+  genero            : string = '';
+  correoElectronico : string = '';
+  
+  modelo            : string = '';
+  patente           : string = '';
+  
+  contrasena1       : string = '';
+  contrasena2       : string = '';
   
   selectedDate: Date | null = null;
 

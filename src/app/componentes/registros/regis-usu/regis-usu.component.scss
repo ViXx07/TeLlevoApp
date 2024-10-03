@@ -1,3 +1,10 @@
+.paginacion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 19px;
+}
 .inputs{
     display: flex;
     flex-direction: column;
@@ -13,9 +20,11 @@
     text-align: left;
     border: 1px solid grey;
 }
-.error{
-    border: 1px solid var(--ion-color-danger);  
+.errores{
+    color: #ff3333;
+    border-color: #ff3333 !important;
 }
+
 .p-importante{
     font-weight: 500;
     font-size: 16px;
