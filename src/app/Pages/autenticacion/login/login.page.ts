@@ -18,7 +18,9 @@ export class LoginPage implements OnInit {
 
   Login(){
     if (this.usuario != '' && this.clave != '') {
-      alert("Hiciste login redirecciona c:")
+      localStorage.setItem("usuario",this.usuario)
+      console.log("usuario guardado");
+      this.navCtrl.navigateForward(["/home"]);
     } else {
       alert("Usuario o contraseña no existe")
     }

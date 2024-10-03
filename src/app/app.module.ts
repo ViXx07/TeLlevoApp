@@ -15,8 +15,9 @@ import { AngularFireModule} from '@angular/fire/compat';
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-      AngularFirestoreModule,
+	  AngularFirestoreModule,
   ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

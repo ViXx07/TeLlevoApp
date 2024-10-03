@@ -6,13 +6,16 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
+// Se importa el modulo para que se exporten los componentes 
+import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    ModuloModule,
   ],
   declarations: [HomePage]
 })
