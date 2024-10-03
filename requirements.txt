@@ -1,0 +1,4 @@
+npm install
+npm install firebase @angular/fire
+npm intall -g @angular/cli
+ng add @angular/material

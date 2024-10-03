@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-chofer.page.scss'],
 })
 export class HomeChoferPage implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

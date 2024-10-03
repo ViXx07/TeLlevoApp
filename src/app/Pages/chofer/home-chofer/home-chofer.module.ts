@@ -8,12 +8,15 @@ import { HomeChoferPageRoutingModule } from './home-chofer-routing.module';
 
 import { HomeChoferPage } from './home-chofer.page';
 
+import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomeChoferPageRoutingModule
+    HomeChoferPageRoutingModule,
+    ModuloModule
   ],
   declarations: [HomeChoferPage]
 })
