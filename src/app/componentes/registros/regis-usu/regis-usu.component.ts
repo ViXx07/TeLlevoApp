@@ -121,6 +121,7 @@ export class RegisUsuComponent  implements OnInit {
   grabar(){
     this.crudPasajero.grabarPasajero(this.usuario).then(()=>{
       alert("grabó");
+      this.navCtrl.navigateBack(['/login']);
     }).catch(err => {
       alert(err + " No grabó")
     });

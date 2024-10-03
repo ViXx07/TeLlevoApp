@@ -35,9 +35,11 @@ export class RegisChofComponent  implements OnInit {
   errCorreo      : boolean | null = null;
   errNacimiento  : boolean | null = null;
   errContrasena  : boolean | null = null;
+  errModelo      : boolean | null = null;
+  errPatente     : boolean | null = null;
 
-  vNombre  () {this.errNombre   = this.usuario.nombre   === '';};
-  vApellido() {this.errApellido = this.usuario.apellido === '';};
+  vNombre  () {this.errNombre   = this.usuario.nombre   === ''};
+  vApellido() {this.errApellido = this.usuario.apellido === ''};
   vRut   (){
     const regex = /^[0-9]{7,8}[0-9kK]$/i;
     const validar = regex.test(this.usuario.rut);
@@ -67,6 +69,18 @@ export class RegisChofComponent  implements OnInit {
       return false;
     };
   };
+
+  vModelo(){this.errModelo = this.usuario.modelo === ''};
+  vPatente(){
+    const regex = /^[A-Z]{2}[0-9]{4}|[A-Z]{4}[0-9]{2}$/i;
+    const validar = regex.test(this.usuario.patente);
+    if (validar) {
+      return this.errPatente=false;
+    } else {
+      return this.errPatente=true;
+    }
+  };
+
   /* listo */
   validarPaso1(){
     /* Si todos los parametros dan que son '' daran true, por lo cual verifico que sean false para continuar */
@@ -90,7 +104,14 @@ export class RegisChofComponent  implements OnInit {
     }
   }
   /* revisar algo raro debe tener */
-  validarPaso3(){}
+  validarPaso3(){
+    if (this.errModelo === false && this.errPatente === false) {
+      this.mostrarPaso = 4;
+    } else {
+      this.vModelo();
+      this.vPatente();
+    }
+  }
   /* revisar */
   validarFinal(){
     if (this.vContrasena()) {
@@ -121,6 +142,7 @@ export class RegisChofComponent  implements OnInit {
   grabar(){
     this.crudChofer.grabarChofer(this.usuario).then(()=>{
       alert("grabó");
+      this.navCtrl.navigateBack(['/login']);
     }).catch(err => {
       alert(err + " No grabó")
     });
