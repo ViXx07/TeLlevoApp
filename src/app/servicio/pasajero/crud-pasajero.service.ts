@@ -9,7 +9,7 @@ export class CrudPasajeroService {
 
   constructor(private afs : AngularFirestore) { }
 
-  grabarPasajero(pasajero: Pasajero){
-    return this.afs.collection('pasajero').add(pasajero)
+  grabarPasajero(pasajero : Pasajero){
+    return this.afs.collection('pasajero').add(pasajero);
   }
 }
