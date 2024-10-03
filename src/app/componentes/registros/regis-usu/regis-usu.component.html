@@ -24,12 +24,13 @@
     </div>
 
     <div class="inputs">
-      <label for="">Apellido *</label>
-      <input [(ngModel)]="usuario.apellido" placeholder="Ingrese apellido" type="text">
+      <label for="">Apellido *  <small *ngIf="errApellido" class="errores">Ingrese apellido valido</small></label>
+      <input [(ngModel)]="usuario.apellido" (blur)="vApellido()" [ngClass]="{'errores': errApellido}" placeholder="Ingrese apellido" type="text">
     </div>
+
     <div class="inputs">
-      <label for="">Rut *</label>
-      <input [(ngModel)]="usuario.rut" placeholder="Ingrese rut" type="text">
+      <label for="">Rut * <small *ngIf="errRut" class="errores">Ingrese rut valido</small></label>
+      <input [(ngModel)]="usuario.rut" (blur)="vRut()" [ngClass]="{'errores': errRut}" placeholder="Ingrese rut" type="text">
     </div>
     <hr>
     <div class="contenedor-horizontal">

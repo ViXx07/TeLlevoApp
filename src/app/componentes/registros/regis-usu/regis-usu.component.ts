@@ -11,9 +11,8 @@ import { CrudPasajeroService } from 'src/app/servicio/pasajero/crud-pasajero.ser
 export class RegisUsuComponent  implements OnInit {
   mostrarPaso       : number = 1 ;
   contrasena2: string = '';
-  /* bool manejo imputs */
-  errNombre : boolean = false;
-
+  
+  
   usuario : Pasajero = {
     rut: '',
     nombre: '',
@@ -24,24 +23,40 @@ export class RegisUsuComponent  implements OnInit {
     contrasena: '',
     tipo: 'pasajero',
   };
-
+  
+  /* bool manejo imputs */
+  errNombre      : boolean = false;
+  errApellido    : boolean = false;
+  errRut         : boolean = false;
+  errCorreo      : boolean = false;
+  errGenero      : boolean = false;
+  errNacimiento  : boolean = false;
+  errContrasena  : boolean = false;
+  errContrasena2 : boolean = false;
+  vNombre(){this.errNombre = this.usuario.nombre === '';}
+  vApellido(){this.errApellido = this.usuario.apellido === ''}
+  vRut   (){this.errRut    = this.usuario.rut    === ''}
+  vCorreo(){this.errCorreo = this.usuario.correoElectronico === ''}
+  vGenero(){this.errGenero = this.usuario.genero === ''}
+  /* vNacimiento(){this.errNacimiento = this.usuario.fecha_nac === ''} */
+  vContrasena(){this.errContrasena = this.usuario.contrasena === ''}
+  vcontrasena2(){this.errContrasena2 = this.contrasena2 === ''}
   
   constructor(private navCtrl : NavController,
     private crudPasajero: CrudPasajeroService,
   ) { }
   
-  vNombre(){this.errNombre = this.usuario.nombre === ''}
 
   goLogin(){
     this.navCtrl.navigateBack(['/login']);
   }
   validarPaso1(){
-    if (this.usuario.nombre!='') {
-    
+
+    if (!this.errNombre && !this.errApellido && !this.errRut) {
+      alert(this.errNombre)
     } else {
-      
-    }
-    this.mostrarPaso = 2;
+      this.mostrarPaso = 2;
+    } 
   }
   validarPaso2(){
     this.mostrarPaso = 3;
