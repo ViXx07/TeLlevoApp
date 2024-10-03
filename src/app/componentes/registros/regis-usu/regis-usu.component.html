@@ -29,8 +29,8 @@
     </div>
 
     <div class="inputs">
-      <label for="">Rut * <small *ngIf="errRut" class="errores">Ingrese rut valido</small></label>
-      <input [(ngModel)]="usuario.rut" (blur)="vRut()" [ngClass]="{'errores': errRut}" placeholder="Ingrese rut" type="text">
+      <label for="">Rut * <small *ngIf="errRut" class="errores">Ingrese rut valido, sin puntos ni guión</small></label>
+      <input [(ngModel)]="usuario.rut" (blur)="vRut()" [ngClass]="{'errores': errRut}" placeholder="Ingrese rut (10100100k)" type="text">
     </div>
     <hr>
     <div class="contenedor-horizontal">
@@ -45,7 +45,7 @@
   <section>
     <div class="inputs">
       <label for="">Género * <small *ngIf="errGenero" class="errores">Seleccione genero</small></label>
-      <select [(ngModel)]="usuario.genero" (blur)="vGenero()" [ngClass]="{'errores': errGenero}" name="" id="" placeholder="seleccione">
+      <select [(ngModel)]="usuario.genero" (blur)="vGenero()" [ngClass]="{'erroresSelect': errGenero}" name="" id="" placeholder="seleccione">
         <option value="" disabled selected>Selecione género</option>
         <option value="Femenino">Femenino</option>
         <option value="Masculino">Masculino</option>
@@ -75,15 +75,15 @@
 <div *ngIf="mostrarPaso == 3" class="" id="paso3-pasajero">
   <section>
     <div class="inputs">
-      <label for="">Contraseña *</label>
-      <input [(ngModel)]="usuario.contrasena" placeholder="Ingrese contraseña" type="password" type="password">
-      <input [(ngModel)]="contrasena2" placeholder="Ingrese contraseña" type="password" type="password">
+      <label for="">Contraseña * <small *ngIf="errContrasena" class="errores">Ingrese su contraseña</small></label>
+      <input [(ngModel)]="usuario.contrasena" [ngClass]="{'errores': errContrasena}" placeholder="Ingrese contraseña" type="password" type="password">
+      <input [(ngModel)]="contrasena2"[ngClass]="{'errores': errContrasena}" placeholder="Ingrese contraseña" type="password" type="password">
     </div>
     <hr>
     <div class="contenedor-horizontal">
       <span>¿Ya tienes cuenta?</span>
       <a [routerLink]="['/login']">Inicia sesión</a>
-      <button (click)="grabar()" class="boton-principal">Crear Cuenta</button>
+      <button (click)="validarFinal()" class="boton-principal">Crear Cuenta</button>
     </div>
   </section>
   
