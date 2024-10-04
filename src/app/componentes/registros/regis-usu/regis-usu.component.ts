@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Pasajero } from 'src/app/model/Pasajero';
 import { CrudPasajeroService } from 'src/app/servicio/pasajero/crud-pasajero.service';
+import { FireLoginService } from 'src/app/servicio/login/fire-login.service';
 
 @Component({
   selector: 'app-regis-usu',
@@ -9,7 +10,11 @@ import { CrudPasajeroService } from 'src/app/servicio/pasajero/crud-pasajero.ser
   styleUrls: ['./regis-usu.component.scss'],
 })
 export class RegisUsuComponent  implements OnInit {
-
+  constructor(private navCtrl : NavController,
+    private crudPasajero: CrudPasajeroService,
+    private servicioAuth: FireLoginService,
+  ) { }
+  
   mostrarPaso       : number = 1 ;
   contrasena2: string = '';
   
@@ -66,11 +71,6 @@ export class RegisUsuComponent  implements OnInit {
     };
   };
   
-  constructor(private navCtrl : NavController,
-    private crudPasajero: CrudPasajeroService,
-  ) { }
-  
-
   goLogin(){
     this.navCtrl.navigateBack(['/login']);
   }
@@ -97,7 +97,7 @@ export class RegisUsuComponent  implements OnInit {
   }
   validarFinal(){
     if (this.vContrasena()) {
-      this.grabar();
+      this.grabarUser();
     } else {
       alert(this.errContrasena)
       this.vContrasena();
@@ -127,7 +127,14 @@ export class RegisUsuComponent  implements OnInit {
     });
   }
 
-
+  async grabarUser(){
+    try {
+      const aux = await this.servicioAuth.registro(this.usuario);
+      alert (aux)
+    } catch (error) {
+      alert(error)
+    }
+  }
 
   ngOnInit() {
   }
