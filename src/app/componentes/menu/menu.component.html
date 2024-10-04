@@ -5,13 +5,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="contenedor">
     <div class="contenido-menu">
-      <ion-list>Mis viajes </ion-list>
-      <hr>
-      <ion-list>xd</ion-list>
-      <hr>
-      <ion-list>xd</ion-list>
+      <ion-list class="menu-item">
+        <ion-item>Mi perfil</ion-item>
+        <ion-item>Mis viajes</ion-item>
+        <ion-item>Cerrar sesión</ion-item>
+      </ion-list>
     </div>
   </ion-content>
 
@@ -20,9 +20,15 @@
   <ion-header>
     <ion-toolbar>
       <ion-title class="titulo">Bienvenido</ion-title>
+      <ion-buttons slot="start" >
+        <ion-button (click)="navVolver()">
+          <ion-icon class="ion--arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
+      
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">  </ion-content>
