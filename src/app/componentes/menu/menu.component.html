@@ -1,15 +1,15 @@
 <ion-menu side="end" contentId="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title class="titulo">Menu</ion-title>
+      <ion-title class="titulo">Menú</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content class="contenedor">
     <div class="contenido-menu">
       <ion-list class="menu-item">
-        <ion-item>Mi perfil</ion-item>
-        <ion-item>Mis viajes</ion-item>
+        <ion-item href="('/perfil-chofer')">Mi perfil</ion-item>
+        <ion-item href="('/misviajes-chofer')">Mis viajes</ion-item>
         <ion-item>Cerrar sesión</ion-item>
       </ion-list>
     </div>
@@ -19,6 +19,7 @@
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
+      <!--hacer funcion para cambiar el titulo dependiendo de la página-->  
       <ion-title class="titulo">Bienvenido</ion-title>
       <ion-buttons slot="start" >
         <ion-button (click)="navVolver()">
