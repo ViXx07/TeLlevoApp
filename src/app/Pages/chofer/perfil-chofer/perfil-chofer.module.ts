@@ -8,12 +8,15 @@ import { PerfilChoferPageRoutingModule } from './perfil-chofer-routing.module';
 
 import { PerfilChoferPage } from './perfil-chofer.page';
 
+import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilChoferPageRoutingModule
+    PerfilChoferPageRoutingModule,
+    ModuloModule
   ],
   declarations: [PerfilChoferPage]
 })

@@ -8,12 +8,15 @@ import { MisviajesChoferPageRoutingModule } from './misviajes-chofer-routing.mod
 
 import { MisviajesChoferPage } from './misviajes-chofer.page';
 
+import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MisviajesChoferPageRoutingModule
+    MisviajesChoferPageRoutingModule,
+    ModuloModule
   ],
   declarations: [MisviajesChoferPage]
 })

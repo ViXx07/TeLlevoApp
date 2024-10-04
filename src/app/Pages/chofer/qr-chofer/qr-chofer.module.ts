@@ -8,12 +8,16 @@ import { QrChoferPageRoutingModule } from './qr-chofer-routing.module';
 
 import { QrChoferPage } from './qr-chofer.page';
 
+import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QrChoferPageRoutingModule
+    QrChoferPageRoutingModule,
+    ModuloModule
+    
   ],
   declarations: [QrChoferPage]
 })

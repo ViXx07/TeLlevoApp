@@ -8,12 +8,15 @@ import { CrearViajePageRoutingModule } from './crear-viaje-routing.module';
 
 import { CrearViajePage } from './crear-viaje.page';
 
+import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CrearViajePageRoutingModule
+    CrearViajePageRoutingModule,
+    ModuloModule
   ],
   declarations: [CrearViajePage]
 })
