@@ -12,10 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   }, 
   {
-    path: '',
-    loadChildren: () => import('./Pages/inicio/inicio.module').then( m => m.InicioPageModule)
-  },
-  {
     path: 'splash',
     loadChildren: () => import('./Pages/autenticacion/splash/splash.module').then( m => m.SplashPageModule)
   },
@@ -64,7 +60,6 @@ const routes: Routes = [
     path: 'qr-chofer',
     loadChildren: () => import('./Pages/chofer/qr-chofer/qr-chofer.module').then( m => m.QrChoferPageModule)
   },
-  /* La página de error siempre debe quedar al final para que no genere conflictos */
   {
     path: 'crear-viaje',
     loadChildren: () => import('./Pages/chofer/crear-viaje/crear-viaje.module').then( m => m.CrearViajePageModule)
@@ -73,6 +68,7 @@ const routes: Routes = [
     path: 'mod-viaje',
     loadChildren: () => import('./Pages/chofer/mod-viaje/mod-viaje.module').then( m => m.ModViajePageModule)
   },
+  /* La página de error siempre debe quedar al final para que no genere conflictos */
   {
     path: '**',
     loadChildren: () => import('./Pages/p404/p404.module').then( m => m.P404PageModule)
