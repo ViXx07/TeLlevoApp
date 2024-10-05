@@ -1,0 +1,17 @@
+<div id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <!--hacer funcion para cambiar el titulo dependiendo de la página-->  
+      <ion-title class="titulo">{{titulo}}</ion-title>
+      <ion-buttons slot="start" >
+        <ion-button (click)="navVolver()">
+          <ion-icon class="ion--arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      
+    </ion-toolbar>
+  </ion-header>
+</div>
