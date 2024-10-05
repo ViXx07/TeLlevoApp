@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 
+
 // Declarar y exportar los componentes:
 @NgModule({
   declarations: [

@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { Pasajero } from 'src/app/model/Pasajero';
 import { CrudPasajeroService } from 'src/app/servicio/pasajero/crud-pasajero.service';
 import { FireLoginService } from 'src/app/servicio/login/fire-login.service';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-regis-usu',
@@ -15,20 +16,25 @@ export class RegisUsuComponent  implements OnInit {
     private servicioAuth: FireLoginService,
   ) { }
   
-  mostrarPaso       : number = 1 ;
+  cargandoFlag = false;
+  mostrarPaso: number = 1 ;
+  contrasena: String = '';
   contrasena2: string = '';
   
   
   usuario : Pasajero = {
+    id: '',
     rut: '',
     nombre: '',
     apellido: '',
     correoElectronico: '',
     genero: '',
     fecha_nac: null,
-    contrasena: '',
     tipo: 'pasajero',
   };
+ 
+    
+
   
   /* bool manejo imputs */
   errNombre      : boolean | null = null;
@@ -62,7 +68,7 @@ export class RegisUsuComponent  implements OnInit {
   };
   /* vNacimiento(){this.errNacimiento = this.usuario.fecha_nac === ''} */
   vContrasena() {
-    if (this.usuario.contrasena !== '' && this.contrasena2 !== '' && this.usuario.contrasena === this.contrasena2) {
+    if (this.contrasena.length >=6 && this.contrasena2.length >= 6 && this.contrasena === this.contrasena2) {
       this.errContrasena=false;
       return true;
     } else {
@@ -99,7 +105,6 @@ export class RegisUsuComponent  implements OnInit {
     if (this.vContrasena()) {
       this.grabarUser();
     } else {
-      alert(this.errContrasena)
       this.vContrasena();
     }
   }
@@ -117,22 +122,32 @@ export class RegisUsuComponent  implements OnInit {
 
 
   /* CRUD */
-
-  grabar(){
-    this.crudPasajero.grabarPasajero(this.usuario).then(()=>{
-      alert("grabó");
-      this.navCtrl.navigateBack(['/login']);
-    }).catch(err => {
-      alert(err + " No grabó")
-    });
-  }
-
   async grabarUser(){
+    this.cargandoFlag = true;
     try {
-      const aux = await this.servicioAuth.registro(this.usuario);
-      alert (aux)
+      const aux = await this.servicioAuth.registro(this.usuario.correoElectronico,this.contrasena);
+      const usu = aux.user;
+      if (usu) {
+        this.usuario.id = usu.uid;
+        await this.crudPasajero.grabarPasajero(this.usuario);
+        this.cargandoFlag = false;
+        swal.fire({
+          icon:'success',
+          title: 'Registro exitoso!',
+          text: 'Usuario registrado con éxito.',
+          confirmButtonText: 'Iniciar sesión',
+          heightAuto: false
+        }).then(()=>{this.navCtrl.navigateBack(['/login'])});
+      } 
     } catch (error) {
-      alert(error)
+      this.cargandoFlag = false;
+      swal.fire({
+        icon:'error',
+        title: 'Hubo un error!',
+        text: 'Error al crear tu usuario ;C',
+        confirmButtonText: 'Reintentar',
+        heightAuto: false
+      })
     }
   }
 

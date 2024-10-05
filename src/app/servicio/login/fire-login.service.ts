@@ -21,12 +21,12 @@ export class FireLoginService {
     return this.Firestore.collection("Usuario").doc(UsuarioID).delete();
   }
   
-  login(loginUser:any){
-    return this.AFU.signInWithEmailAndPassword(loginUser.email,loginUser.pass);
+  login(email:any,contrasena:any){
+    return this.AFU.signInWithEmailAndPassword(email,contrasena);
   }
 
-  registro(loginUser:any){
-    return this.AFU.createUserWithEmailAndPassword(loginUser.email,loginUser.pass);
+  registro(mail:any,pass:any){
+    return this.AFU.createUserWithEmailAndPassword(mail,pass);
   }
 
   desconectar() {

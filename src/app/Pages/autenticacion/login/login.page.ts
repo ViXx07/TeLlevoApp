@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-
+import { FireLoginService } from 'src/app/servicio/login/fire-login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -8,21 +8,27 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private navCtrl : NavController) { }
+  constructor(private navCtrl : NavController,
+              private servicioAuth : FireLoginService,
+  ) { }
 
-  usuario : string = ''
+  email : string = ''
   clave : string = ''
   
   ngOnInit() {
   }
 
-  Login(){
-    if (this.usuario != '' && this.clave != '') {
-      localStorage.setItem("usuario",this.usuario)
-      console.log("usuario guardado");
-      this.navCtrl.navigateForward(["/home"]);
+  async Login(){
+    if (this.email != '' && this.clave != '') {
+      try {
+        const aux = await this.servicioAuth.login(this.email,this.clave);
+        localStorage.setItem("usuario",this.email);
+        this.navCtrl.navigateForward(["/home"]);
+      } catch (error) {
+        alert(error)
+      }
     } else {
-      alert("Usuario o contraseña no existe")
+      alert("Email o contraseña no existe")
     }
   }
 

@@ -75,8 +75,8 @@
 <div *ngIf="mostrarPaso == 3" class="" id="paso3-pasajero">
   <section>
     <div class="inputs">
-      <label for="">Contraseña * <small *ngIf="errContrasena" class="errores">Ingrese su contraseña</small></label>
-      <input [(ngModel)]="usuario.contrasena" [ngClass]="{'errores': errContrasena}" placeholder="Ingrese contraseña" type="password" type="password">
+      <label for="">Contraseña * <small>(Mínimo 6 dígitos)</small> <small *ngIf="errContrasena" class="errores"> Ingrese contraseña válida</small></label>
+      <input [(ngModel)]="contrasena" [ngClass]="{'errores': errContrasena}" placeholder="Ingrese contraseña" type="password" type="password">
       <input [(ngModel)]="contrasena2"[ngClass]="{'errores': errContrasena}" placeholder="Ingrese contraseña" type="password" type="password">
     </div>
     <hr>
@@ -88,3 +88,4 @@
   </section>
   
 </div>
+<div *ngIf="cargandoFlag" class="spinner"><mat-spinner style="top: 12rem;"></mat-spinner></div>
