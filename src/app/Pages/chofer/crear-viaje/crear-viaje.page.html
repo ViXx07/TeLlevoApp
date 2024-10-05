@@ -3,6 +3,30 @@
 <ion-content  [fullscreen]="true">
   <app-header></app-header>  
   <!--Programar desde aqui: -->
+  
+    <section>
+      <div class="inputs">
+        <label for="">Dirección destino</label>
+        <input [(ngModel)]="viaje.destino" placeholder="Ingrese dirección" type="text">
+      </div>
+      <div class="inputs">
+        <label for="">Monto por persona</label>
+        <input [(ngModel)]="viaje.valor" placeholder="$" type="number">
+      </div>
+      <div class="inputs">
+        <label for="">Punto de encuentro</label>
+        <input [(ngModel)]="viaje.punto_encuentro" placeholder="Ingrese punto de encuentro" type="text">
+      </div>
+      <div class="inputs">
+        <label for="">Hora de inicio viaje</label>
+        <input [(ngModel)]="viaje.hora_inicio" placeholder="Ingrese punto de encuentro" type="time  ">
+      </div>
+      <div class="contenedor-horizontal">
+        <button (click)="grabar()" class="boton-principal">Continuar</button>
+      </div>
+      
+      
+    </section>
 </ion-content>
 
 <app-toolbar></app-toolbar>
