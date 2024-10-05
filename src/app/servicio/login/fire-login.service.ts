@@ -21,7 +21,7 @@ export class FireLoginService {
     return this.Firestore.collection("Usuario").doc(UsuarioID).delete();
   }
   
-  login(email:any,contrasena:any){
+  login(email:string,contrasena:string){
     return this.AFU.signInWithEmailAndPassword(email,contrasena);
   }
 

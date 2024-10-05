@@ -10,7 +10,7 @@ import { NavController } from '@ionic/angular';
 export class RecuperaPasswordPage implements OnInit {
 
   constructor(private navCtrl : NavController) { }
-
+  cargandoFlag = false;
   mostrarPaso : number = 1 ;
   correo      : string = '';
 

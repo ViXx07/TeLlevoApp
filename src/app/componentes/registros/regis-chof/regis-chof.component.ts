@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Chofer } from 'src/app/model/Chofer';
 import { CrudChoferService } from 'src/app/servicio/chofer/crud-chofer.service';
+import { FireLoginService } from 'src/app/servicio/login/fire-login.service';
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-regis-chof',
   templateUrl: './regis-chof.component.html',
@@ -10,19 +12,21 @@ import { CrudChoferService } from 'src/app/servicio/chofer/crud-chofer.service';
 export class RegisChofComponent  implements OnInit {
   constructor(private navCtrl : NavController,
               private crudChofer: CrudChoferService,
+              private servicioAuth: FireLoginService,
   ) { }
-  
-  mostrarPaso       : number = 1 ;
-  contrasena2       : string = '';
+  cargandoFlag = false;
+  mostrarPaso  : number = 1 ;
+  contrasena   : String = '';
+  contrasena2  : string = '';
 
   usuario : Chofer ={
+    id:'',
     rut: '',
     nombre: '',
     apellido: '',
     correoElectronico: '',
     genero: '',
     fecha_nac: null,
-    contrasena: '',
     modelo : '',
     patente : '',
     tipo: 'chofer',
@@ -61,7 +65,7 @@ export class RegisChofComponent  implements OnInit {
   };
   /* vNacimiento(){this.errNacimiento = this.usuario.fecha_nac === ''} */
   vContrasena() {
-    if (this.usuario.contrasena !== '' && this.contrasena2 !== '' && this.usuario.contrasena === this.contrasena2) {
+    if (this.contrasena.length >=6 && this.contrasena2.length >= 6 && this.contrasena === this.contrasena2) {
       this.errContrasena=false;
       return true;
     } else {
@@ -112,12 +116,10 @@ export class RegisChofComponent  implements OnInit {
       this.vPatente();
     }
   }
-  /* revisar */
   validarFinal(){
     if (this.vContrasena()) {
-      this.grabar();
+      this.grabarUser();
     } else {
-      alert(this.errContrasena)
       this.vContrasena();
     }
   }
@@ -146,6 +148,34 @@ export class RegisChofComponent  implements OnInit {
     }).catch(err => {
       alert(err + " No grabó")
     });
+  }
+  async grabarUser(){
+    this.cargandoFlag = true;
+    try {
+      const aux = await this.servicioAuth.registro(this.usuario.correoElectronico,this.contrasena);
+      const usu = aux.user;
+      if (usu) {
+        this.usuario.id = usu.uid;
+        await this.crudChofer.grabarChofer(this.usuario);
+        this.cargandoFlag = false;
+        swal.fire({
+          icon:'success',
+          title: 'Registro exitoso!',
+          text: 'Usuario registrado con éxito.',
+          confirmButtonText: 'Iniciar sesión',
+          heightAuto: false
+        }).then(()=>{this.navCtrl.navigateBack(['/login'])});
+      } 
+    } catch (error) {
+      this.cargandoFlag = false;
+      swal.fire({
+        icon:'error',
+        title: 'Hubo un error!',
+        text: 'Error al crear tu usuario ;C',
+        confirmButtonText: 'Reintentar',
+        heightAuto: false
+      })
+    }
   }
 
   ngOnInit() {
