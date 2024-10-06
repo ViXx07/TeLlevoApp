@@ -8,8 +8,8 @@
     <p>Iniciar Sesión</p>
     <hr>
     <div class="inputs">
-      <label for="">Usuario</label>
-      <input [(ngModel)]="usuario" placeholder="Ingrese usuario" type="text">
+      <label for="">Email</label>
+      <input [(ngModel)]="email" placeholder="Ingrese email" type="text">
     </div>
     <div class="inputs">
       <label for="">Contraseña</label>
@@ -25,4 +25,6 @@
       <a [routerLink]="['/registro']">Registrate</a>
     </div>
   </div>
+  <div *ngIf="cargandoFlag" class="spinner"><mat-spinner style="top: 10rem;"></mat-spinner></div>
+  
 </ion-content>

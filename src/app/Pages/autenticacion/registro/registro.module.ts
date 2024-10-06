@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core'; // O usa MatMomentDateModule si prefieres Moment.js
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -29,7 +30,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatProgressSpinnerModule
   ],
   declarations: [RegistroPage,RegisUsuComponent,RegisChofComponent]
 })
