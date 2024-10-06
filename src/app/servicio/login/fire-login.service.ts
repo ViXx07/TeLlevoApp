@@ -32,15 +32,9 @@ export class FireLoginService {
   desconectar() {
     return this.AFU.signOut();
   }
-  
-  recuperarPass(email: string) {
-    return this.AFU.sendPasswordResetEmail(email)
-    .then(() => {
-      console.log('Correo enviado!');
-    })
-    .catch((error) => {
-      console.log('Error al enviar el correo!');
-      throw error;
-    });
+
+
+  recuperarContrasena(email: string) {
+    return this.AFU.sendPasswordResetEmail(email);
   }
 }

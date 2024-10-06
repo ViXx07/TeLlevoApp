@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/compat/firestore'
+import { firstValueFrom, Observable } from 'rxjs';
 import { Pasajero } from 'src/app/model/Pasajero';
 
 @Injectable({
@@ -21,4 +22,15 @@ export class CrudPasajeroService {
       tipo: pasajero.tipo,
     });
   }
+
+  async getPasajero(id:string): Promise<Pasajero | undefined>{
+    const aux = await this.afs.collection('pasajero').doc(id).get().toPromise();
+    if (aux?.exists) {
+      const pasajero = aux.data() as Pasajero;
+      return pasajero;
+    } else {
+      return undefined;
+    }
+  }
+
 }

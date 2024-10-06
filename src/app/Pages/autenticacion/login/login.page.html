@@ -25,4 +25,6 @@
       <a [routerLink]="['/registro']">Registrate</a>
     </div>
   </div>
+  <div *ngIf="cargandoFlag" class="spinner"><mat-spinner style="top: 10rem;"></mat-spinner></div>
+  
 </ion-content>

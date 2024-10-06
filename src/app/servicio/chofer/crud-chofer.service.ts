@@ -23,4 +23,15 @@ export class CrudChoferService {
       tipo              : chofer.tipo,
     });
   }
+
+  async getChofer(id:string): Promise<Chofer | undefined>{
+    const aux = await this.afs.collection('chofer').doc(id).get().toPromise();
+    if (aux?.exists) {
+      const pasajero = aux.data() as Chofer;
+      return pasajero;
+    } else {
+      return undefined;
+    }
+  }
+
 }
