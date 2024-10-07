@@ -37,4 +37,10 @@ export class FireLoginService {
   recuperarContrasena(email: string) {
     return this.AFU.sendPasswordResetEmail(email);
   }
+
+/*   db.collection("usuarios") // Reemplaza "usuarios" con el nombre de tu colección
+  .where("email", "==", emailToCheck) // Asegúrate de que "email" es el campo correcto
+  .get() */
+
+
 }
