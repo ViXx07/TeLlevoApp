@@ -1,3 +1,4 @@
+import { core } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { FireLoginService } from 'src/app/servicio/login/fire-login.service';
@@ -53,7 +54,10 @@ export class RecuperaPasswordPage implements OnInit {
     }
   }
 
-
+  async prueba(){
+    const aux = await this.autenticacion.prueba(this.correo);
+    console.log(aux);
+  }
 
 
 /*   validarPaso1(){

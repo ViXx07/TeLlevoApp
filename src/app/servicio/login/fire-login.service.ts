@@ -28,12 +28,14 @@ export class FireLoginService {
   registro(mail:any,pass:any){
     return this.AFU.createUserWithEmailAndPassword(mail,pass);
   }
-
+  /* este tienes que llamar para desconectarte */
   desconectar() {
     return this.AFU.signOut();
   }
 
-
+  prueba(email:string){
+    return this.AFU.fetchSignInMethodsForEmail(email);
+  }
   recuperarContrasena(email: string) {
     return this.AFU.sendPasswordResetEmail(email);
   }
