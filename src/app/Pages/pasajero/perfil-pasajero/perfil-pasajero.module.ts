@@ -10,6 +10,7 @@ import { PerfilPasajeroPage } from './perfil-pasajero.page';
 
 import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
 import { ViajesComponent } from 'src/app/componentes/viajes/viajes.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ViajesComponent } from 'src/app/componentes/viajes/viajes.component';
     IonicModule,
     PerfilPasajeroPageRoutingModule,
     ModuloModule,
+    MatProgressSpinnerModule,
   ],
   declarations: [PerfilPasajeroPage,ViajesComponent]
 })
