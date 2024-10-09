@@ -50,3 +50,14 @@ ion-avatar{
     background-color: rgb(255, 255, 255);
 }
 
+.spinner{
+    background: rgb(190, 190, 190);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;            /* Agrega esta línea */
+    justify-content: center;  /* Centra horizontalmente */
+    /* align-items: center;   */
+}

@@ -10,3 +10,15 @@ export interface Pasajero {
     fecha_nac: Date | null;
     tipo:string;
 }
+
+/* export function PasajeroVacio(): Pasajero {
+    return {id: '',
+    rut: '',
+    nombre: '',
+    apellido: '',
+    correoElectronico: '',
+    genero: '',
+    fecha_nac: null,
+    tipo:'',
+    };
+}; */

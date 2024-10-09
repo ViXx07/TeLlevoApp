@@ -34,13 +34,15 @@ export class LoginPage implements OnInit {
             this.cargandoFlag = true;
             const pasajero = await this.firePasajero.getPasajero(aux.user.uid);
             if (pasajero != undefined) {
-              localStorage.setItem("usuario",pasajero.nombre);
+              localStorage.setItem("idUsuario",aux.user.uid);
+              localStorage.setItem("nombre",pasajero.nombre);
               localStorage.setItem("tipo",'pasajero');
               this.navCtrl.navigateForward(["/home-pasajero"]);
             } else {
               const chofer = await this.fireChofer.getChofer(aux.user.uid);
               if (chofer != undefined) {
-                localStorage.setItem("usuario",chofer.nombre);
+                localStorage.setItem("idUsuario",aux.user.uid);
+                localStorage.setItem("nombre",chofer.nombre);
                 localStorage.setItem("tipo",'pasajero');
                 this.navCtrl.navigateForward(["/home-chofer"]);
               }
