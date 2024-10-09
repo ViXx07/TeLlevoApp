@@ -1,0 +1,19 @@
+article{
+    border: 1px #D9D9D9 solid ;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem 0.5rem;
+}
+
+article h5{
+    font: 600;
+    font-size: 1.5rem;
+}
+.fila{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+p{
+    color: #4d4d4d;
+    margin: 0.4rem;
+}

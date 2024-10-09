@@ -9,6 +9,7 @@ import { PerfilPasajeroPageRoutingModule } from './perfil-pasajero-routing.modul
 import { PerfilPasajeroPage } from './perfil-pasajero.page';
 
 import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+import { ViajesComponent } from 'src/app/componentes/viajes/viajes.component';
 
 @NgModule({
   imports: [
@@ -16,8 +17,8 @@ import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
     FormsModule,
     IonicModule,
     PerfilPasajeroPageRoutingModule,
-    ModuloModule
+    ModuloModule,
   ],
-  declarations: [PerfilPasajeroPage]
+  declarations: [PerfilPasajeroPage,ViajesComponent]
 })
 export class PerfilPasajeroPageModule {}

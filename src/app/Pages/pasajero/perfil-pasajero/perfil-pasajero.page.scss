@@ -1,0 +1,52 @@
+.perf-superior{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem 0 1rem;
+    background-color: #D9D9D9 ;
+}
+ion-avatar{
+    width: 9rem;
+    height: 9rem;
+}
+.nombre-superior{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.nombre-superior h4{
+    font: 600;
+    font-size: 1.5rem;
+}
+
+.perf-inferior{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #D9D9D9;
+}
+.perf-inferior section{
+    padding: 0 1.5rem 0;
+}
+.perf-inferior section h5{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.perf-inferior section p{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.superior{
+    background-color: rgb(255, 255, 255);
+    border-radius: 1.5rem 1.5rem 0 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 0.5rem !important;
+}
+.inferior{
+    background-color: rgb(255, 255, 255);
+}
+
