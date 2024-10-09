@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { addIcons } from 'ionicons';
 import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle, search, star } from 'ionicons/icons';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,13 +10,15 @@ import { NavController } from '@ionic/angular';
 })
 export class ToolbarComponent  implements OnInit {
 
-  constructor(private navCtrl:NavController) {
+  constructor(private router: Router) {
     addIcons({ create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle, search, star });
   }
 
   ngOnInit() {}
 
   navPagina(page: string){
-    this.navCtrl.navigateForward(page);
+    this.router.navigate([page]).then(()=>{
+      location.reload();
+    })
   }
 }

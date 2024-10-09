@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { NavController } from '@ionic/angular';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -9,27 +10,27 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent  implements OnInit {
-  titulo: string = 'Bienvenido';
+  @Input() titulo: string = ''; // Propiedad de entrada para el título
 
   constructor(
     private location:Location,
-    private navCtrl:NavController,
-    private route: ActivatedRoute,
     private router: Router
   ) { }
 
+  
+
   ngOnInit() {
     // Nos suscribimos a los cambios de las rutas para actualizar el título dinámicamente
-    this.router.events.subscribe(() => {
+    this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.tituloPagina(); // Llamamos al método para establecer el título según la ruta actual
-      } 
-      
+        this.tituloPagina(); 
+      }
     });
+    
   }
-
+  
   navPagina(page:string) {
-    this.navCtrl.navigateForward(page);
+    this.router.navigate([page]);
   }
 
   navVolver() {
@@ -38,19 +39,23 @@ export class HeaderComponent  implements OnInit {
 
   tituloPagina() {
     const rutaActual = this.router.url;
-    switch(rutaActual) {
-      case "/crear-viaje":
-        this.titulo = "Crear viaje";
+    switch (rutaActual) {
+      case '/crear-viaje':
+        this.titulo = 'Crear viaje';
         break;
-      case "/misviajes-chofer":
-      case "/misviajes-pasajero":
-        this.titulo = "Mis viajes";
+      case '/misviajes-chofer':
+      case '/misviajes-pasajero':
+        this.titulo = 'Mis viajes';
         break;
-      case "/qr-pasajero":
-        this.titulo = "Generar QR";
+      case '/qr-pasajero':
+        this.titulo = 'Generar QR';
         break;
+      case '/perfil-pasajero':
+      case '/perfil-chofer':
+        this.titulo = 'Mi perfil';
+        break
       default:
-        this.titulo = "Bienvenido";
+        this.titulo = 'Bienvenido';
     }
   }
 }
