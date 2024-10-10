@@ -45,6 +45,8 @@ export class LoginPage implements OnInit {
                 this.navCtrl.navigateForward(["/home-chofer"]);
               }
             }
+            this.email = '';
+            this.clave = '';
             this.cargandoFlag=false;
           } catch (error) {
             Swal.fire({

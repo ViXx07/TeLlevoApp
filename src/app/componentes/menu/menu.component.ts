@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import {FireLoginService} from 'src/app/servicio/login/fire-login.service'
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +13,8 @@ export class MenuComponent  implements OnInit {
   
   constructor(private navCtrl:NavController,
     private location:Location,
-    private router: Router
+    private router: Router,
+    private fireLogin: FireLoginService,
   ) { }
 
   ngOnInit() {}
@@ -23,5 +25,16 @@ export class MenuComponent  implements OnInit {
 
   navVolver() {
     this.location.back();
+  }
+
+  async logout(){
+    try {
+      await this.fireLogin.desconectar;
+      localStorage.removeItem("usuario");
+      localStorage.removeItem("idUsuario");
+      this.navCtrl.navigateRoot('/login');
+    } catch (error) {
+      alert(error);
+    }
   }
 }

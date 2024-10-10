@@ -4,15 +4,17 @@
   <app-header></app-header>
   <article class="perf-superior">
     <ion-avatar><img alt="Foto perfil" src="https://ionicframework.com/docs/img/demos/avatar.svg" /></ion-avatar>
-    <section *ngIf="false" class="nombre-superior">
-      <h4>{{usuarioObj.nombre}}</h4>
-      <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
-        <path fill="black"
+    <section *ngIf="!modFlag" class="nombre-superior">
+      <h4>{{pasajero.nombre}}</h4>
+      
+        <svg (click)="modificando()" xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
+          <path fill="black"
           d="M21 12a1 1 0 0 0-1 1v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1 1 0 0 0 0-2H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-6a1 1 0 0 0-1-1m-15 .76V17a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .71-.29l6.92-6.93L21.71 8a1 1 0 0 0 0-1.42l-4.24-4.29a1 1 0 0 0-1.42 0l-2.82 2.83l-6.94 6.93a1 1 0 0 0-.29.71m10.76-8.35l2.83 2.83l-1.42 1.42l-2.83-2.83ZM8 13.17l5.93-5.93l2.83 2.83L10.83 16H8Z" />
-      </svg>
+        </svg>
+      
     </section>
   </article>
-  <article *ngIf="false" class="perf-inferior">
+  <article *ngIf="!modFlag" class="perf-inferior">
     <section class="superior">
       <svg xmlns="http://www.w3.org/2000/svg" width="35px" height="35px" viewBox="0 0 24 24">
         <path fill="#40C021"
@@ -21,8 +23,8 @@
     </section>
     <section class="inferior">
       <h5>Sobre mi</h5>
-      <p>Nombre: {{usuarioObj.nombre + ' ' + usuarioObj.apellido}}</p>
-      <p>Genero: {{usuarioObj.genero}}</p>
+      <p>Nombre: {{pasajero.nombre + ' ' + pasajero.apellido}}</p>
+      <p>Genero: {{pasajero.genero}}</p>
       <hr />
     </section>
     <section class="inferior">
@@ -32,16 +34,15 @@
         [chofer]="'Pepito Pérez'"></app-viajes>
     </section>
   </article>
-  <article *ngIf="true" class="perf-inferior">   
+  <article *ngIf="modFlag" class="perf-inferior">   
     <section class="inferior">
       <h5>Modificando tu perfil</h5>
-      <ion-input label="Nombre"></ion-input>
-      <ion-input label="Apellido"></ion-input>
-      <ion-input label="Rut"></ion-input>
-      <ion-input label="Correo"></ion-input>
-      <ion-input label="Genero"></ion-input>
-      <ion-input label="Fecha de nacimiento"></ion-input>
-      <button ion-button>Confirmar</button>
+      <ion-input label="Nombre"   [(ngModel)]="pasajero.nombre" value="{{pasajero.nombre}}"></ion-input>
+      <ion-input label="Apellido" [(ngModel)]="pasajero.apellido" value="{{pasajero.apellido}}"></ion-input>
+      <ion-input label="Rut"      [(ngModel)]="pasajero.rut" value="{{pasajero.rut}}"></ion-input>
+      <ion-input label="Correo"   [(ngModel)]="pasajero.correoElectronico" value="{{pasajero.correoElectronico}}"></ion-input>
+      <ion-input label="Genero"   [(ngModel)]="pasajero.genero" value="{{pasajero.genero}}"></ion-input>
+      <button (click)="confirmMod()" ion-button>Confirmar</button>
       <hr />
     </section>
   </article>

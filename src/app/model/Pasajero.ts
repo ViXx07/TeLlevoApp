@@ -11,7 +11,7 @@ export interface Pasajero {
     tipo:string;
 }
 
-/* export function PasajeroVacio(): Pasajero {
+export function PasajeroVacio(): Pasajero {
     return {id: '',
     rut: '',
     nombre: '',
@@ -21,4 +21,4 @@ export interface Pasajero {
     fecha_nac: null,
     tipo:'',
     };
-}; */
+}; 

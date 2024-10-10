@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { Pasajero } from 'src/app/model/Pasajero';
+import { PasajeroVacio } from 'src/app/model/Pasajero';
 import {CrudPasajeroService} from 'src/app/servicio/pasajero/crud-pasajero.service'
 
 @Component({
@@ -15,20 +15,25 @@ export class PerfilPasajeroPage implements OnInit {
   ) { }
   
   jsonUsu = localStorage.getItem("usuario");
-  usuarioObj: any = '';
 
+  pasajero = PasajeroVacio();
 
+  
+  modFlag = false;
   cargandoFlag = false;
 
   ngOnInit() {
     if (this.jsonUsu !== null) {
       this.cargandoFlag = true;
-      this.usuarioObj = JSON.parse(this.jsonUsu);
+      this.pasajero = JSON.parse(this.jsonUsu);
       this.cargandoFlag = false;
     } else {
       this.navCtrl.navigateForward("/login");
     }
   }
+
+  modificando(){this.modFlag=true};
+  confirmMod(){this.modFlag=false};
 
 /*   async recibirPasajero(){
     try {
