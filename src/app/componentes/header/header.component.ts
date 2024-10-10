@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { NavController } from '@ionic/angular';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -11,19 +10,20 @@ import { MenuController } from '@ionic/angular';
 })
 export class HeaderComponent  implements OnInit {
   @Input() titulo: string = ''; // Propiedad de entrada para el título
+  mostrar: Boolean = false;
 
   constructor(
     private location:Location,
     private router: Router
   ) { }
 
-  
 
   ngOnInit() {
     // Nos suscribimos a los cambios de las rutas para actualizar el título dinámicamente
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.tituloPagina(); 
+        this.esconderBtnVolver(); 
       }
     });
     
@@ -56,6 +56,16 @@ export class HeaderComponent  implements OnInit {
         break
       default:
         this.titulo = 'Bienvenido';
+    }
+  }
+
+
+  esconderBtnVolver(){
+    const rutaActual = this.router.url;
+    if (rutaActual === "/home-chofer" || rutaActual === "/home-pasajero") {
+      this.mostrar = false;
+    } else {
+      this.mostrar = true;
     }
   }
 }
