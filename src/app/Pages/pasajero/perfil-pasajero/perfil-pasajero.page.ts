@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Pasajero } from 'src/app/model/Pasajero';
 import {CrudPasajeroService} from 'src/app/servicio/pasajero/crud-pasajero.service'
+
 @Component({
   selector: 'app-perfil-pasajero',
   templateUrl: './perfil-pasajero.page.html',
@@ -7,35 +10,39 @@ import {CrudPasajeroService} from 'src/app/servicio/pasajero/crud-pasajero.servi
 })
 export class PerfilPasajeroPage implements OnInit {
 
-  constructor(private CrudPasajero : CrudPasajeroService) { }
+  constructor(private CrudPasajero : CrudPasajeroService,
+              private navCtrl: NavController,
+  ) { }
   
-  usuario = localStorage.getItem("idUsuario");
-  pasajero : any;
-  nombre : string = '';
-  nombreCompleto : string = '';
+  jsonUsu = localStorage.getItem("usuario");
+  usuarioObj: any = '';
+
+
   cargandoFlag = false;
 
   ngOnInit() {
-    this.recibirPasajero()
-    console.log(this.usuario);
+    if (this.jsonUsu !== null) {
+      this.cargandoFlag = true;
+      this.usuarioObj = JSON.parse(this.jsonUsu);
+      this.cargandoFlag = false;
+    } else {
+      this.navCtrl.navigateForward("/login");
+    }
   }
 
-  async recibirPasajero(){
-    if (this.usuario !== null) {
-      try {
-        this.cargandoFlag=true;
-        this.pasajero = await this.CrudPasajero.getPasajero(this.usuario);
-        console.log(this.pasajero)
-        this.nombre = this.pasajero.nombre
-        this.nombreCompleto = this.pasajero.nombre + ' ' + this.pasajero.apellido 
-        this.cargandoFlag=false;
+/*   async recibirPasajero(){
+    try {
+      this.cargandoFlag=true;
+      this.pasajero = await this.CrudPasajero.getPasajero(this.usuario);
+      console.log(this.pasajero)
+      this.nombre = this.pasajero.nombre
+      this.nombreCompleto = this.pasajero.nombre + ' ' + this.pasajero.apellido 
+      this.cargandoFlag=false;
       } catch (error) {
         alert(error)
       }
-    } else {
-      alert("usuario vacio no hay id :C")
-    }
-  }
+  } */
+
 
   
   

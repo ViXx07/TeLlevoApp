@@ -30,6 +30,8 @@ export class FireLoginService {
   }
   /* este tienes que llamar para desconectarte */
   desconectar() {
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("idUsuario");
     return this.AFU.signOut();
   }
 
