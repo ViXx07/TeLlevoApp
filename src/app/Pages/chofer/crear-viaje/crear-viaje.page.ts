@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Viaje } from 'src/app/model/Viaje';
+import { Viaje,viajeVacio } from 'src/app/model/Viaje';
 import { CrudViajeService } from 'src/app/servicio/viaje/crud-viaje.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CrudViajeService } from 'src/app/servicio/viaje/crud-viaje.service';
   styleUrls: ['./crear-viaje.page.scss'],
 })
 export class CrearViajePage implements OnInit {
-  viaje: Viaje = {destino:'', hora_inicio:0, punto_encuentro:'', valor:0}
+  viaje = viajeVacio();
 
   constructor(private crud:CrudViajeService) { }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { PasajeroVacio } from 'src/app/model/Pasajero';
 import {CrudPasajeroService} from 'src/app/servicio/pasajero/crud-pasajero.service'
+/* import sweetaler2 */
 
 @Component({
   selector: 'app-perfil-pasajero',
@@ -19,7 +20,7 @@ export class PerfilPasajeroPage implements OnInit {
   pasajero = PasajeroVacio();
 
   
-  modFlag = false;
+  modFlag = true;
   cargandoFlag = false;
 
   ngOnInit() {
@@ -33,7 +34,18 @@ export class PerfilPasajeroPage implements OnInit {
   }
 
   modificando(){this.modFlag=true};
-  confirmMod(){this.modFlag=false};
+
+  async confirmMod(){
+    try {
+      await this.CrudPasajero.modificarPasajero(this.pasajero)
+      this.jsonUsu = JSON.stringify(this.pasajero);
+      localStorage.setItem("usuario", this.jsonUsu);
+      this.pasajero = JSON.parse(this.jsonUsu);
+      this.modFlag=false;
+    } catch (error) {
+      alert(error)
+    }
+  }
 
 /*   async recibirPasajero(){
     try {

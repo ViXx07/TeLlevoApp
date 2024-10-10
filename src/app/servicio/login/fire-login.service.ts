@@ -13,8 +13,9 @@ export class FireLoginService {
   GetUsuarios():Observable<any[]>{
     return this.Firestore.collection("Usuario").valueChanges();
   }
-  async editarUsuario(UsuarioID:any, updateData:any){
-    await this.Firestore.collection("Usuario").doc(UsuarioID).set(updateData);
+  
+  editarUsuario(UsuarioID:any, updateData:any){
+    return this.Firestore.collection("Usuario").doc(UsuarioID).set(updateData);
   }
 
   deleteUsuario(UsuarioID:any){

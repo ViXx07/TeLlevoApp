@@ -34,16 +34,18 @@
         [chofer]="'Pepito Pérez'"></app-viajes>
     </section>
   </article>
-  <article *ngIf="modFlag" class="perf-inferior">   
+  <article *ngIf="modFlag" class="perf-inferior"> 
+    <section class="superior"></section>  
     <section class="inferior">
       <h5>Modificando tu perfil</h5>
-      <ion-input label="Nombre"   [(ngModel)]="pasajero.nombre" value="{{pasajero.nombre}}"></ion-input>
-      <ion-input label="Apellido" [(ngModel)]="pasajero.apellido" value="{{pasajero.apellido}}"></ion-input>
-      <ion-input label="Rut"      [(ngModel)]="pasajero.rut" value="{{pasajero.rut}}"></ion-input>
-      <ion-input label="Correo"   [(ngModel)]="pasajero.correoElectronico" value="{{pasajero.correoElectronico}}"></ion-input>
-      <ion-input label="Genero"   [(ngModel)]="pasajero.genero" value="{{pasajero.genero}}"></ion-input>
-      <button (click)="confirmMod()" ion-button>Confirmar</button>
-      <hr />
+      <ion-input required label="Nombre"   label-placement="floating" fill="outline" placeholder="Nombre" [(ngModel)]="pasajero.nombre" value="{{pasajero.nombre}}"></ion-input>
+      <ion-input required label="Apellido" label-placement="floating" fill="outline" placeholder="Apellido" [(ngModel)]="pasajero.apellido" value="{{pasajero.apellido}}"></ion-input>
+      <ion-input disabled label="Rut" label-placement="floating" fill="outline" placeholder="Rut" [(ngModel)]="pasajero.rut" value="{{pasajero.rut}}"></ion-input>
+      <ion-input required label="Correo"   label-placement="floating" fill="outline" placeholder="Correo"  [(ngModel)]="pasajero.correoElectronico" value="{{pasajero.correoElectronico}}"></ion-input>
+      <ion-input required label="Genero"   label-placement="floating" fill="outline" placeholder="Genero" [(ngModel)]="pasajero.genero" value="{{pasajero.genero}}"></ion-input>
+      <div class="divButton">
+        <ion-button (click)="confirmMod()" >Confirmar</ion-button>
+      </div>
     </section>
   </article>
   <div *ngIf="cargandoFlag" class="spinner">

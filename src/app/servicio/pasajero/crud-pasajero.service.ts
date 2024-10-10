@@ -11,8 +11,8 @@ export class CrudPasajeroService {
   constructor(private afs : AngularFirestore) { }
 
   grabarPasajero(pasajero : Pasajero){
-    return this.afs.collection('pasajero').doc(pasajero.id).set({
-      uid: pasajero.id,
+    return this.afs.collection('pasajero').doc(pasajero.uid).set({
+      uid: pasajero.uid,
       rut: pasajero.rut,
       nombre: pasajero.nombre,
       apellido: pasajero.apellido,
@@ -20,6 +20,14 @@ export class CrudPasajeroService {
       genero: pasajero.genero,
       fecha_nac: pasajero.fecha_nac,
       tipo: pasajero.tipo,
+    });
+  }
+  modificarPasajero(pasajero : Pasajero){
+    return this.afs.collection('pasajero').doc(pasajero.uid).update({
+      nombre: pasajero.nombre,
+      apellido: pasajero.apellido,
+      correoElectronico: pasajero.correoElectronico,
+      genero: pasajero.genero,
     });
   }
 

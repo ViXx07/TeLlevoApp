@@ -16,7 +16,7 @@ export class CrudViajeService {
   }
 
   listar(): Observable<Viaje[]>{
-    return this.afs.collection<Viaje>('viaje').valueChanges({idField: 'id'})
+    return this.afs.collection<Viaje>('viaje').valueChanges({idField: 'uid'})
   }
 
 }
