@@ -8,7 +8,7 @@ import { CrudViajeService } from 'src/app/servicio/viaje/crud-viaje.service';
   styleUrls: ['./crear-viaje.page.scss'],
 })
 export class CrearViajePage implements OnInit {
-  viaje: Viaje = {destino:'', hora_inicio:0, punto_encuentro:'', valor:0}
+  viaje: Viaje = {destino:'', hora_inicio: null , punto_encuentro:'', valor: null}
 
   constructor(private crud:CrudViajeService) { }
 
