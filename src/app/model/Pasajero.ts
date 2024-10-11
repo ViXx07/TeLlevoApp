@@ -1,7 +1,7 @@
 
 
 export interface Pasajero {
-    id: string;
+    uid: string;
     rut: string;
     nombre: string;
     apellido: string;
@@ -11,8 +11,8 @@ export interface Pasajero {
     tipo:string;
 }
 
-/* export function PasajeroVacio(): Pasajero {
-    return {id: '',
+export function PasajeroVacio(): Pasajero {
+    return {uid: '',
     rut: '',
     nombre: '',
     apellido: '',
@@ -21,4 +21,4 @@ export interface Pasajero {
     fecha_nac: null,
     tipo:'',
     };
-}; */
+}; 

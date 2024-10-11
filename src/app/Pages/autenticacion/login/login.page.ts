@@ -1,3 +1,4 @@
+import { Chofer } from './../../../model/Chofer';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { FireLoginService } from 'src/app/servicio/login/fire-login.service';
@@ -19,11 +20,10 @@ export class LoginPage implements OnInit {
               private firePasajero : CrudPasajeroService,
   ) { }
 
-  email : string = ''
-  clave : string = ''
+  email : string = '';
+  clave : string = '';
   cargandoFlag = false;
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async Login(){
     if (this.email != '' && this.clave != '') {
@@ -34,19 +34,19 @@ export class LoginPage implements OnInit {
             this.cargandoFlag = true;
             const pasajero = await this.firePasajero.getPasajero(aux.user.uid);
             if (pasajero != undefined) {
+              localStorage.setItem("usuario", JSON.stringify(pasajero));
               localStorage.setItem("idUsuario",aux.user.uid);
-              localStorage.setItem("nombre",pasajero.nombre);
-              localStorage.setItem("tipo",'pasajero');
               this.navCtrl.navigateForward(["/home-pasajero"]);
             } else {
               const chofer = await this.fireChofer.getChofer(aux.user.uid);
               if (chofer != undefined) {
+                localStorage.setItem("usuario", JSON.stringify(chofer));
                 localStorage.setItem("idUsuario",aux.user.uid);
-                localStorage.setItem("nombre",chofer.nombre);
-                localStorage.setItem("tipo",'pasajero');
                 this.navCtrl.navigateForward(["/home-chofer"]);
               }
             }
+            this.email = '';
+            this.clave = '';
             this.cargandoFlag=false;
           } catch (error) {
             Swal.fire({

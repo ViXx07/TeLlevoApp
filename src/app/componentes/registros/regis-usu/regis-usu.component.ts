@@ -23,7 +23,7 @@ export class RegisUsuComponent  implements OnInit {
   
   
   usuario : Pasajero = {
-    id: '',
+    uid: '',
     rut: '',
     nombre: '',
     apellido: '',
@@ -128,7 +128,7 @@ export class RegisUsuComponent  implements OnInit {
       const aux = await this.servicioAuth.registro(this.usuario.correoElectronico,this.contrasena);
       const usu = aux.user;
       if (usu) {
-        this.usuario.id = usu.uid;
+        this.usuario.uid = usu.uid;
         await this.crudPasajero.grabarPasajero(this.usuario);
         this.cargandoFlag = false;
         swal.fire({

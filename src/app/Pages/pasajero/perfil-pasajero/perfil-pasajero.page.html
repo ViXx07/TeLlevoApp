@@ -4,15 +4,17 @@
   <app-header></app-header>
   <article class="perf-superior">
     <ion-avatar><img alt="Foto perfil" src="https://ionicframework.com/docs/img/demos/avatar.svg" /></ion-avatar>
-    <section class="nombre-superior">
-      <h4>{{nombre}}</h4>
-      <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
-        <path fill="black"
+    <section *ngIf="!modFlag" class="nombre-superior">
+      <h4>{{pasajero.nombre}}</h4>
+      
+        <svg (click)="modificando()" xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
+          <path fill="black"
           d="M21 12a1 1 0 0 0-1 1v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1 1 0 0 0 0-2H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-6a1 1 0 0 0-1-1m-15 .76V17a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .71-.29l6.92-6.93L21.71 8a1 1 0 0 0 0-1.42l-4.24-4.29a1 1 0 0 0-1.42 0l-2.82 2.83l-6.94 6.93a1 1 0 0 0-.29.71m10.76-8.35l2.83 2.83l-1.42 1.42l-2.83-2.83ZM8 13.17l5.93-5.93l2.83 2.83L10.83 16H8Z" />
-      </svg>
+        </svg>
+      
     </section>
   </article>
-  <article class="perf-inferior">
+  <article *ngIf="!modFlag" class="perf-inferior">
     <section class="superior">
       <svg xmlns="http://www.w3.org/2000/svg" width="35px" height="35px" viewBox="0 0 24 24">
         <path fill="#40C021"
@@ -21,7 +23,8 @@
     </section>
     <section class="inferior">
       <h5>Sobre mi</h5>
-      <p>Nombre: {{nombreCompleto}}</p>
+      <p>Nombre: {{pasajero.nombre + ' ' + pasajero.apellido}}</p>
+      <p>Genero: {{pasajero.genero}}</p>
       <hr />
     </section>
     <section class="inferior">
@@ -29,6 +32,20 @@
       <p>viajes totales: n°</p>
       <app-viajes [destino]="'probando'" [hora]="'10:20'" [fecha]="'10/10/2025'" [monto]="'$5.000'"
         [chofer]="'Pepito Pérez'"></app-viajes>
+    </section>
+  </article>
+  <article *ngIf="modFlag" class="perf-inferior"> 
+    <section class="superior"></section>  
+    <section class="inferior">
+      <h5>Modificando tu perfil</h5>
+      <ion-input required label="Nombre"   label-placement="floating" fill="outline" placeholder="Nombre" [(ngModel)]="pasajero.nombre" value="{{pasajero.nombre}}"></ion-input>
+      <ion-input required label="Apellido" label-placement="floating" fill="outline" placeholder="Apellido" [(ngModel)]="pasajero.apellido" value="{{pasajero.apellido}}"></ion-input>
+      <ion-input disabled label="Rut" label-placement="floating" fill="outline" placeholder="Rut" [(ngModel)]="pasajero.rut" value="{{pasajero.rut}}"></ion-input>
+      <ion-input required label="Correo"   label-placement="floating" fill="outline" placeholder="Correo"  [(ngModel)]="pasajero.correoElectronico" value="{{pasajero.correoElectronico}}"></ion-input>
+      <ion-input required label="Genero"   label-placement="floating" fill="outline" placeholder="Genero" [(ngModel)]="pasajero.genero" value="{{pasajero.genero}}"></ion-input>
+      <div class="divButton">
+        <ion-button (click)="confirmMod()" >Confirmar</ion-button>
+      </div>
     </section>
   </article>
   <div *ngIf="cargandoFlag" class="spinner">
