@@ -1,0 +1,77 @@
+.perf-superior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem 0 1rem;
+  background-color: #d9d9d9;
+}
+ion-avatar {
+  width: 9rem;
+  height: 9rem;
+}
+.nombre-superior {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nombre-superior h4 {
+  font: 600;
+  font-size: 1.5rem;
+}
+
+.perf-inferior {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #d9d9d9;
+}
+.perf-inferior section {
+  padding: 0 1.5rem 0;
+}
+.perf-inferior section h5 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.perf-inferior section p {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.superior {
+  background-color: rgb(255, 255, 255);
+  border-radius: 1.5rem 1.5rem 0 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 0.5rem !important;
+}
+.inferior {
+  background-color: rgb(255, 255, 255);
+}
+.divVehiculo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+ion-input {
+  margin-bottom: 1rem;
+}
+.divButton {
+  padding-top: 1rem;
+  text-align: right;
+}
+
+.spinner {
+  background: rgb(190, 190, 190);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* Agrega esta línea */
+  justify-content: center; /* Centra horizontalmente */
+  /* align-items: center;   */
+}

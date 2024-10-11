@@ -41,10 +41,16 @@
       <ion-input required label="Nombre"   label-placement="floating" fill="outline" placeholder="Nombre" [(ngModel)]="pasajero.nombre" value="{{pasajero.nombre}}"></ion-input>
       <ion-input required label="Apellido" label-placement="floating" fill="outline" placeholder="Apellido" [(ngModel)]="pasajero.apellido" value="{{pasajero.apellido}}"></ion-input>
       <ion-input disabled label="Rut" label-placement="floating" fill="outline" placeholder="Rut" [(ngModel)]="pasajero.rut" value="{{pasajero.rut}}"></ion-input>
-      <ion-input required label="Correo"   label-placement="floating" fill="outline" placeholder="Correo"  [(ngModel)]="pasajero.correoElectronico" value="{{pasajero.correoElectronico}}"></ion-input>
-      <ion-input required label="Genero"   label-placement="floating" fill="outline" placeholder="Genero" [(ngModel)]="pasajero.genero" value="{{pasajero.genero}}"></ion-input>
+      <ion-input disabled label="Correo"   label-placement="floating" fill="outline" placeholder="Correo"  [(ngModel)]="pasajero.correoElectronico" value="{{pasajero.correoElectronico}}"></ion-input>
+<!--       <ion-input required label="Genero"   label-placement="floating" fill="outline" placeholder="Genero" [(ngModel)]="pasajero.genero" value="{{pasajero.genero}}"></ion-input> -->
+      <ion-select [(ngModel)]="pasajero.genero" label="Género" label-placement="floating" fill="outline">
+        <ion-select-option value="Masculino">Masculino</ion-select-option>
+        <ion-select-option value="Femenino">Femenino</ion-select-option>
+        <ion-select-option value="Otro">Otro</ion-select-option>
+      </ion-select>
       <div class="divButton">
-        <ion-button (click)="confirmMod()" >Confirmar</ion-button>
+        <ion-button (click)="cancelar()"color="medium" fill="outline">Cancelar</ion-button>
+        <ion-button (click)="validar()" >Confirmar</ion-button>
       </div>
     </section>
   </article>

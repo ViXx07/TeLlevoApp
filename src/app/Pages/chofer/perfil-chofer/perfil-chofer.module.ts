@@ -7,8 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { PerfilChoferPageRoutingModule } from './perfil-chofer-routing.module';
 
 import { PerfilChoferPage } from './perfil-chofer.page';
-
+import { ViajesComponent } from 'src/app/componentes/viajes/viajes.component';
 import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -16,8 +17,9 @@ import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
     FormsModule,
     IonicModule,
     PerfilChoferPageRoutingModule,
-    ModuloModule
+    ModuloModule,
+    MatProgressSpinnerModule,
   ],
-  declarations: [PerfilChoferPage]
+  declarations: [PerfilChoferPage,ViajesComponent]
 })
 export class PerfilChoferPageModule {}

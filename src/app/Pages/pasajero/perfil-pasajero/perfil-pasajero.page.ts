@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { PasajeroVacio } from 'src/app/model/Pasajero';
 import {CrudPasajeroService} from 'src/app/servicio/pasajero/crud-pasajero.service'
-/* import sweetaler2 */
 
 @Component({
   selector: 'app-perfil-pasajero',
@@ -20,7 +19,7 @@ export class PerfilPasajeroPage implements OnInit {
   pasajero = PasajeroVacio();
 
   
-  modFlag = true;
+  modFlag = false;
   cargandoFlag = false;
 
   ngOnInit() {
@@ -34,6 +33,17 @@ export class PerfilPasajeroPage implements OnInit {
   }
 
   modificando(){this.modFlag=true};
+  cancelar(){
+    if (this.jsonUsu !== null) {
+      this.pasajero = JSON.parse(this.jsonUsu);
+      this.modFlag=false};
+  }
+
+  validar(){
+    if (this.pasajero.nombre!=='' && this.pasajero.apellido!=='' && this.pasajero.genero !=='') {
+      this.confirmMod();
+    }
+  }
 
   async confirmMod(){
     try {
