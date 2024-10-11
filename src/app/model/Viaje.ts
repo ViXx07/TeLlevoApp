@@ -7,8 +7,8 @@ export interface Viaje {
     pasajeros: Pasajero[] | null;
     hora_inicio: string   | null;
     punto_encuentro: string;
-    valor: number;
-    numPasajeros: number;
+    valor: number | null;
+    numPasajeros: number | null;
 }
 
 export function viajeVacio(): Viaje {
@@ -19,7 +19,7 @@ export function viajeVacio(): Viaje {
         pasajeros: null,
         hora_inicio: null,
         punto_encuentro: '',
-        valor: 0,
-        numPasajeros: 0,
+        valor: null ,
+        numPasajeros: null,
     };
 }; 

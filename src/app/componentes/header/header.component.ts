@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 })
 export class HeaderComponent  implements OnInit {
   @Input() titulo: string = ''; // Propiedad de entrada para el título
-  mostrar: Boolean = false;
+  mostrar: Boolean = false; 
 
   constructor(
     private location:Location,
@@ -53,6 +53,9 @@ export class HeaderComponent  implements OnInit {
       case '/perfil-pasajero':
       case '/perfil-chofer':
         this.titulo = 'Mi perfil';
+        break
+      case '/mod-viaje':
+        this.titulo = 'Modicar viaje';
         break
       default:
         this.titulo = 'Bienvenido';
