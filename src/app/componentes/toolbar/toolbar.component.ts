@@ -13,8 +13,11 @@ export class ToolbarComponent  implements OnInit {
   constructor(private router: Router) {
     addIcons({ create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle, search, star });
   }
+  perfil: string | null = null;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.perfil = localStorage.getItem('perfil');
+  }
 
   navPagina(page: string){
     this.router.navigate([page]).then(()=>{

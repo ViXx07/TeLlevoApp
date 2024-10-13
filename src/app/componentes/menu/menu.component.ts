@@ -15,9 +15,14 @@ export class MenuComponent  implements OnInit {
     private location:Location,
     private router: Router,
     private fireLogin: FireLoginService,
+    
   ) { }
 
-  ngOnInit() {}
+    perfil: string | null = null;
+
+  ngOnInit() {
+    this.perfil = localStorage.getItem('perfil');
+  }
 
   navPagina(page:string) {
     this.router.navigate([page]);
@@ -32,9 +37,21 @@ export class MenuComponent  implements OnInit {
       await this.fireLogin.desconectar;
       localStorage.removeItem("usuario");
       localStorage.removeItem("idUsuario");
+      localStorage.removeItem("perfil");
       this.navCtrl.navigateRoot('/login');
     } catch (error) {
       alert(error);
     }
   }
+
+  /* cambiarMenu() {
+    const rutaActual = this.router.url;
+
+    if (rutaActual === '/home-chofer' ) {
+      this.mostrar = true;
+    } else if (rutaActual === '/home-pasajero') {
+      this.mostrar;
+    }
+    return this.mostrar;
+  } */
 }
