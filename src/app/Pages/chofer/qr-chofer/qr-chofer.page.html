@@ -1,8 +1,14 @@
 <app-menu></app-menu>
+<!-- GENERA QR -->
 
 <ion-content  [fullscreen]="true">
-  <app-header></app-header>  
-  <!--Programar desde aqui: -->
-</ion-content>
+  <qr-code value="valorQrTexto"
+          size="400px"
+          errorCollectionLevel="M"
 
+  />
+</ion-content>
+<div>
+  <ion-button expand="block" routerLink="/home-chofer"> Volver a Inicio </ion-button>
+</div>
 <app-toolbar></app-toolbar>
