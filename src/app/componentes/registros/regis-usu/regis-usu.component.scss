@@ -27,6 +27,13 @@
 .erroresSelect{
     border-color: #ff3333 !important;
 }
+.divDate{
+    margin: 1rem; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px;
+}
+
 
 .p-importante{
     font-weight: 500;
