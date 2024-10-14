@@ -1,16 +1,18 @@
 <app-menu></app-menu>
-<!-- GENERA QR -->
-<ion-header translucent="True">
-  <ion-title style="text-align: center; height: 35px;">Código Qr</ion-title>
-</ion-header>
-<ion-content  [fullscreen]="true">
-  <qr-code value="valorQrTexto"
-          size="350"
-          errorCollectionLevel="M"
 
-  />
+<!-- GENERA QR -->
+<ion-content [fullscreen]="true">
+  <app-header></app-header>
+  <!--   <ion-header translucent="True">
+    <ion-title style="text-align: center; height: 35px;">Código Qr</ion-title>
+  </ion-header> -->
+  <div style="text-align: center;">
+    <qr-code value="valorQrTexto" size="350" errorCollectionLevel="M" />
+  </div>
+
+  <div>
+    <ion-button expand="block "routerLink="/home-chofer"> Volver a Inicio </ion-button>
+  </div>
 </ion-content>
-<div>
-  <ion-button expand="block" routerLink="/home-chofer"> Volver a Inicio </ion-button>
-</div>
+
 <app-toolbar></app-toolbar>
