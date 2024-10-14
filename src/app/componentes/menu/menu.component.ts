@@ -44,14 +44,4 @@ export class MenuComponent  implements OnInit {
     }
   }
 
-  /* cambiarMenu() {
-    const rutaActual = this.router.url;
-
-    if (rutaActual === '/home-chofer' ) {
-      this.mostrar = true;
-    } else if (rutaActual === '/home-pasajero') {
-      this.mostrar;
-    }
-    return this.mostrar;
-  } */
 }

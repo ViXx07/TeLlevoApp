@@ -10,13 +10,16 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 })
 export class HeaderComponent  implements OnInit {
   @Input() titulo: string = ''; // Propiedad de entrada para el título
+
   mostrar: Boolean = false; 
+  usuario: string | null = null;
+  nombre: string | null = null;
 
   constructor(
     private location:Location,
     private router: Router
   ) { }
-
+  
 
   ngOnInit() {
     // Nos suscribimos a los cambios de las rutas para actualizar el título dinámicamente
@@ -27,6 +30,11 @@ export class HeaderComponent  implements OnInit {
       }
     });
     
+    this.usuario = localStorage.getItem('nombre');
+    this.nombre = this.usuario;
+    
+
+    this.esconderBtnVolver();
   }
   
   navPagina(page:string) {
@@ -58,7 +66,7 @@ export class HeaderComponent  implements OnInit {
         this.titulo = 'Modicar viaje';
         break
       default:
-        this.titulo = 'Bienvenido';
+        this.titulo = 'Bienvenid@';
     }
   }
 
@@ -70,5 +78,15 @@ export class HeaderComponent  implements OnInit {
     } else {
       this.mostrar = true;
     }
+    return this.mostrar;
   }
+
+  mostrarUsuario() {
+    const rutaActual = this.router.url;
+
+    if (rutaActual === '/home-chofer' ) {
+      this.mostrar = true;
+    } 
+    return this.mostrar;
+  } 
 }
