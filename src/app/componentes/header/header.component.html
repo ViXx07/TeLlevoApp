@@ -2,8 +2,7 @@
   <ion-header>
     <ion-toolbar>
       <!--hacer funcion para cambiar el titulo dependiendo de la página-->  
-      <ion-title *ngIf="mostrar" class="titulo">{{titulo}} {{nombre}}</ion-title>
-      <ion-title *ngIf="!mostrar" class="titulo">{{titulo}} {{nombre}}</ion-title>
+      <ion-title class="titulo" >{{titulo}} {{usuario2?.nombre}}</ion-title>
       <ion-buttons slot="start" >
         <ion-button name="btnVolver" *ngIf="mostrar" (click)="navVolver()">
           <ion-icon class="ion--arrow-back-outline"></ion-icon>

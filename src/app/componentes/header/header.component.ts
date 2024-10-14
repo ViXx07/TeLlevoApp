@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { NavController } from '@ionic/angular';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Usuario } from 'src/app/model/Usuario';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +13,9 @@ export class HeaderComponent  implements OnInit {
   @Input() titulo: string = ''; // Propiedad de entrada para el título
 
   mostrar: Boolean = false; 
-  usuario: string | null = null;
-  nombre: string | null = null;
+  jsonUsu = localStorage.getItem('usuario')
+  usuario2 : Usuario | null = null;  
+  
 
   constructor(
     private location:Location,
@@ -29,9 +31,9 @@ export class HeaderComponent  implements OnInit {
         this.esconderBtnVolver(); 
         this.mostrarUsuario();
       }
+
     });
     
-    this.usuario = localStorage.getItem('nombre');
     this.esconderBtnVolver();
     this.mostrarUsuario();
   }
@@ -54,8 +56,11 @@ export class HeaderComponent  implements OnInit {
       case '/misviajes-pasajero':
         this.titulo = 'Mis viajes';
         break;
-      case '/qr-pasajero':
+      case '/qr-chofer':
         this.titulo = 'Generar QR';
+        break;  
+      case '/qr-pasajero':
+        this.titulo = 'Leer QR';
         break;
       case '/perfil-pasajero':
       case '/perfil-chofer':
@@ -82,13 +87,15 @@ export class HeaderComponent  implements OnInit {
 
   mostrarUsuario() {
     const rutaActual = this.router.url;
-    this.mostrar = rutaActual === '/home-chofer' || rutaActual === '/home-pasajero';
-
-    if (this.mostrar) {
-      this.nombre = this.usuario;
-    } else {
-      this.nombre = null;
-    }
+    if (rutaActual === '/home-chofer' || rutaActual === '/home-pasajero') {
+      if (this.jsonUsu != null) {
+        this.usuario2 = JSON.parse(this.jsonUsu);
+      } else {
+        this.usuario2 = null;
+      }
+    } 
+    
+    
   }
 
 }
