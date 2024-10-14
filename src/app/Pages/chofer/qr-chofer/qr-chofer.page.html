@@ -1,9 +1,11 @@
 <app-menu></app-menu>
 <!-- GENERA QR -->
-
+<ion-header translucent="True">
+  <ion-title style="text-align: center; height: 35px;">Código Qr</ion-title>
+</ion-header>
 <ion-content  [fullscreen]="true">
   <qr-code value="valorQrTexto"
-          size="400px"
+          size="350"
           errorCollectionLevel="M"
 
   />
