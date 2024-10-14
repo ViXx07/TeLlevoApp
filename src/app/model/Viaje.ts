@@ -8,8 +8,8 @@ export interface Viaje {
     hora_inicio: string   | null;
     punto_encuentro: string;
     valor: number | null;
-    numPasajeros: number | null;
-}
+    numPasajeros: number | null; 
+} 
 
 export function viajeVacio(): Viaje {
     return {    
