@@ -21,6 +21,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ModuloModule,
     MatProgressSpinnerModule,
   ],
-  declarations: [PerfilPasajeroPage,ViajesComponent]
+  declarations: [PerfilPasajeroPage]
 })
 export class PerfilPasajeroPageModule {}

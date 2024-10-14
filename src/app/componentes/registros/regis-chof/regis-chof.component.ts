@@ -20,7 +20,7 @@ export class RegisChofComponent  implements OnInit {
   contrasena2  : string = '';
 
   usuario : Chofer ={
-    id:'',
+    uid:'',
     rut: '',
     nombre: '',
     apellido: '',
@@ -155,7 +155,7 @@ export class RegisChofComponent  implements OnInit {
       const aux = await this.servicioAuth.registro(this.usuario.correoElectronico,this.contrasena);
       const usu = aux.user;
       if (usu) {
-        this.usuario.id = usu.uid;
+        this.usuario.uid = usu.uid;
         await this.crudChofer.grabarChofer(this.usuario);
         this.cargandoFlag = false;
         swal.fire({

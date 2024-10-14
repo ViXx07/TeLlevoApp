@@ -10,8 +10,8 @@ export class CrudChoferService {
   constructor( private afs : AngularFirestore) { }
   
   grabarChofer(chofer : Chofer){
-    return this.afs.collection('chofer').doc(chofer.id).set({
-      uid               : chofer.id,
+    return this.afs.collection('chofer').doc(chofer.uid).set({
+      uid               : chofer.uid,
       rut               : chofer.rut,
       nombre            : chofer.nombre,
       apellido          : chofer.apellido,
@@ -23,6 +23,18 @@ export class CrudChoferService {
       tipo              : chofer.tipo,
     });
   }
+
+  modificarChofer(chofer : Chofer){
+    return this.afs.collection('chofer').doc(chofer.uid).update({
+      nombre: chofer.nombre,
+      apellido: chofer.apellido,
+      correoElectronico: chofer.correoElectronico,
+      genero: chofer.genero,
+      modelo: chofer.modelo,
+      patente: chofer.patente,
+    });
+  }
+
 
   async getChofer(id:string): Promise<Chofer | undefined>{
     const aux = await this.afs.collection('chofer').doc(id).get().toPromise();

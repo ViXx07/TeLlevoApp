@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { MenuComponent } from '../menu/menu.component';
 import { HeaderComponent } from '../header/header.component';
+import { ViajesComponent } from '../viajes/viajes.component';
 
 
 // Declarar y exportar los componentes:
@@ -13,7 +14,8 @@ import { HeaderComponent } from '../header/header.component';
   declarations: [
     ToolbarComponent,
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    ViajesComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { HeaderComponent } from '../header/header.component';
   ],exports:[
     ToolbarComponent,
     MenuComponent,
-    HeaderComponent 
+    HeaderComponent,
+    ViajesComponent
   ]
 })
 export class ModuloModule { }

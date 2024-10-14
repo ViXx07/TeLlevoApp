@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { PerfilChoferPageRoutingModule } from './perfil-chofer-routing.module';
 
 import { PerfilChoferPage } from './perfil-chofer.page';
-
 import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -16,7 +16,8 @@ import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
     FormsModule,
     IonicModule,
     PerfilChoferPageRoutingModule,
-    ModuloModule
+    ModuloModule,
+    MatProgressSpinnerModule,
   ],
   declarations: [PerfilChoferPage]
 })

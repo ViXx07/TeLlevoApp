@@ -1,7 +1,7 @@
 
 
 export interface Chofer {
-    id: string;
+    uid: string;
     rut: string;
     nombre: string;
     apellido: string;
@@ -12,3 +12,17 @@ export interface Chofer {
     modelo:string;
     tipo:string;
 }
+
+export function ChoferVacio(): Chofer {
+    return {uid: '',
+    rut: '',
+    nombre: '',
+    apellido: '',
+    correoElectronico: '',
+    genero: '',
+    fecha_nac: null,
+    tipo:'',
+    patente:'',
+    modelo:'',
+    };
+}; 

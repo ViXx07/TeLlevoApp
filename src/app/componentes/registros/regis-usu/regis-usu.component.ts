@@ -17,7 +17,7 @@ export class RegisUsuComponent  implements OnInit {
   ) { }
   
   cargandoFlag = false;
-  mostrarPaso: number = 1 ;
+  mostrarPaso: number = 2 ;
   contrasena: String = '';
   contrasena2: string = '';
   
