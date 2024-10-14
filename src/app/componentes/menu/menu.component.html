@@ -9,8 +9,12 @@
     <div class="contenido-menu">
       <ion-list class="menu-item">
        <!--  esto tiene que cambiar dependiento del perfil  -->
-        <ion-item href="/perfil-chofer">Mi perfil</ion-item>
-        <ion-item href="/misviajes-chofer">Mis viajes</ion-item>
+        <ion-item *ngIf="perfil === 'chofer'" href="/perfil-chofer">Mi perfil</ion-item>
+        <ion-item *ngIf="perfil === 'chofer'" href="/misviajes-chofer">Mis viajes</ion-item>
+
+        <ion-item *ngIf="perfil === 'pasajero'" href="/perfil-pasajero">Mi perfil</ion-item>
+        <ion-item *ngIf="perfil === 'pasajero'" href="/misviajes-pasajero">Mis viajes</ion-item>
+
         <ion-item (click)="logout()">Cerrar sesión</ion-item>
       </ion-list>
     </div>

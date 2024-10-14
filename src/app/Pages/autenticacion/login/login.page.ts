@@ -36,12 +36,16 @@ export class LoginPage implements OnInit {
             if (pasajero != undefined) {
               localStorage.setItem("usuario", JSON.stringify(pasajero));
               localStorage.setItem("idUsuario",aux.user.uid);
+              localStorage.setItem("perfil", "pasajero");
+              localStorage.setItem("nombre", "nombre");
               this.navCtrl.navigateForward(["/home-pasajero"]);
             } else {
               const chofer = await this.fireChofer.getChofer(aux.user.uid);
               if (chofer != undefined) {
                 localStorage.setItem("usuario", JSON.stringify(chofer));
                 localStorage.setItem("idUsuario",aux.user.uid);
+                localStorage.setItem("perfil", "chofer");
+                localStorage.setItem("nombre", "nombre");
                 this.navCtrl.navigateForward(["/home-chofer"]);
               }
             }
