@@ -27,14 +27,13 @@ export class HeaderComponent  implements OnInit {
       if (event instanceof NavigationEnd) {
         this.tituloPagina(); 
         this.esconderBtnVolver(); 
+        this.mostrarUsuario();
       }
     });
     
     this.usuario = localStorage.getItem('nombre');
-    this.nombre = this.usuario;
-    
-
     this.esconderBtnVolver();
+    this.mostrarUsuario();
   }
   
   navPagina(page:string) {
@@ -83,10 +82,13 @@ export class HeaderComponent  implements OnInit {
 
   mostrarUsuario() {
     const rutaActual = this.router.url;
+    this.mostrar = rutaActual === '/home-chofer' || rutaActual === '/home-pasajero';
 
-    if (rutaActual === '/home-chofer' ) {
-      this.mostrar = true;
-    } 
-    return this.mostrar;
-  } 
+    if (this.mostrar) {
+      this.nombre = this.usuario;
+    } else {
+      this.nombre = null;
+    }
+  }
+
 }
