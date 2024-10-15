@@ -13,7 +13,7 @@ export class FireLoginService {
   GetUsuarios():Observable<any[]>{
     return this.Firestore.collection("Usuario").valueChanges();
   }
-  
+
   editarUsuario(UsuarioID:any, updateData:any){
     return this.Firestore.collection("Usuario").doc(UsuarioID).set(updateData);
   }
