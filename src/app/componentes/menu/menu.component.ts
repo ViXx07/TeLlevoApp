@@ -38,6 +38,7 @@ export class MenuComponent  implements OnInit {
       localStorage.removeItem("usuario");
       localStorage.removeItem("idUsuario");
       localStorage.removeItem("perfil");
+      localStorage.removeItem("nombre");
       this.navCtrl.navigateRoot('/login');
     } catch (error) {
       alert(error);

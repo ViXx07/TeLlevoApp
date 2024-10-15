@@ -82,3 +82,9 @@ select option {
     justify-content: center;  /* Centra horizontalmente */
     /* align-items: center;   */
 }
+.divDate{
+    margin: 1rem; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px;
+}
