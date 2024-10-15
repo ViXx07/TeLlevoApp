@@ -26,10 +26,11 @@ export class PerfilPasajeroPage implements OnInit {
     if (this.jsonUsu !== null) {
       this.cargandoFlag = true;
       this.pasajero = JSON.parse(this.jsonUsu);
-      this.cargandoFlag = false;
-    } else {
-      this.navCtrl.navigateForward("/login");
-    }
+      if (this.pasajero.tipo==='chofer') {
+        this.navCtrl.navigateRoot('perfil-chofer')
+      }
+      setTimeout(()=>this.cargandoFlag = false, 800)
+    } 
   }
 
   modificando(){this.modFlag=true};

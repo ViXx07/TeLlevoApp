@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-qr-pasajero',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QrPasajeroPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
+    if (localStorage.getItem('perfil')==='chofer') {
+      this.navCtrl.navigateRoot('qr-chofer')
+    }
   }
 
 }

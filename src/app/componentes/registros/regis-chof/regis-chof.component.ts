@@ -18,6 +18,7 @@ export class RegisChofComponent  implements OnInit {
   mostrarPaso  : number = 1 ;
   contrasena   : String = '';
   contrasena2  : string = '';
+  limite: Date|null = null;
 
   usuario : Chofer ={
     uid:'',
@@ -63,7 +64,7 @@ export class RegisChofComponent  implements OnInit {
       return this.errCorreo=true;
     }
   };
-  /* vNacimiento(){this.errNacimiento = this.usuario.fecha_nac === ''} */
+  vNacimiento(){this.errNacimiento = this.usuario.fecha_nac === null}
   vContrasena() {
     if (this.contrasena.length >=6 && this.contrasena2.length >= 6 && this.contrasena === this.contrasena2) {
       this.errContrasena=false;
@@ -105,6 +106,7 @@ export class RegisChofComponent  implements OnInit {
     } else {
       this.vGenero();
       this.vCorreo();
+      this.vNacimiento();
     }
   }
   /* revisar algo raro debe tener */
@@ -179,5 +181,7 @@ export class RegisChofComponent  implements OnInit {
   }
 
   ngOnInit() {
+    const hoy = new Date();
+    this.limite=new Date(hoy.getFullYear() - 17, hoy.getMonth(), hoy.getDate());
   }
 }
