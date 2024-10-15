@@ -23,12 +23,15 @@ export class PerfilChoferPage implements OnInit {
   cargandoFlag = false;
 
   ngOnInit() {
+    
+    
     if (this.jsonUsu !== null) {
       this.cargandoFlag = true;
       this.chofer = JSON.parse(this.jsonUsu);
-      this.cargandoFlag = false;
-    } else {
-      this.navCtrl.navigateForward("/login");
+      if (this.chofer.tipo==='pasajero') {
+        this.navCtrl.navigateRoot('perfil-pasajero')
+      }
+      setTimeout(()=>this.cargandoFlag = false, 800)
     }
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { Viaje,viajeVacio } from 'src/app/model/Viaje';
 import { CrudViajeService } from 'src/app/servicio/viaje/crud-viaje.service';
 
@@ -10,9 +11,11 @@ import { CrudViajeService } from 'src/app/servicio/viaje/crud-viaje.service';
 export class CrearViajePage implements OnInit {
   viaje = viajeVacio();
 
-  constructor(private crud:CrudViajeService) { }
+  constructor(private crud:CrudViajeService,
+  ) { }
 
   ngOnInit() {
+
   }
 
   grabar(){
