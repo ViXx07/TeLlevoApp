@@ -3,12 +3,13 @@ import { Pasajero } from "./Pasajero";
 export interface Viaje {
     uid?: string;
     destino: string;
-    chofer: string;
+    chofer: string| null;
     pasajeros: Pasajero[] | null;
     hora_inicio: string   | null;
     punto_encuentro: string;
     valor: number | null;
-    numPasajeros: number | null; 
+    numPasajeros: number | null;
+    finalizado:boolean; 
 } 
 
 export function viajeVacio(): Viaje {
@@ -21,5 +22,6 @@ export function viajeVacio(): Viaje {
         punto_encuentro: '',
         valor: null ,
         numPasajeros: null,
+        finalizado:false
     };
 }; 

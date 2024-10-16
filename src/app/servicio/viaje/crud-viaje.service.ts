@@ -28,4 +28,8 @@ export class CrudViajeService {
       numPasajeros: viaje.numPasajeros,
     });
   }
+  
+  eliminarViaje(viaje: Viaje){
+    return this.afs.collection('viaje').doc(viaje.uid).delete();
+  }
 }

@@ -9,14 +9,16 @@ import { CrearViajePageRoutingModule } from './crear-viaje-routing.module';
 import { CrearViajePage } from './crear-viaje.page';
 
 import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     CrearViajePageRoutingModule,
-    ModuloModule
+    ModuloModule,
+    MatProgressSpinnerModule,
+    
   ],
   declarations: [CrearViajePage]
 })
