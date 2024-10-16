@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 import { Chofer } from 'src/app/model/Chofer';
 
 @Injectable({
@@ -36,14 +37,8 @@ export class CrudChoferService {
   }
 
 
-  async getChofer(id:string): Promise<Chofer | undefined>{
-    const aux = await this.afs.collection('chofer').doc(id).get().toPromise();
-    if (aux?.exists) {
-      const pasajero = aux.data() as Chofer;
-      return pasajero;
-    } else {
-      return undefined;
-    }
+  getChofer(id:string): Observable<any>{
+    return this.afs.collection('chofer').doc(id).valueChanges();
   }
 
 }

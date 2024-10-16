@@ -3,8 +3,8 @@ import { Pasajero } from "./Pasajero";
 export interface Viaje {
     uid?: string;
     destino: string;
-    chofer: string| null;
-    pasajeros: Pasajero[] | null;
+    chofer: string;
+    pasajeros: string[] | null;
     hora_inicio: string   | null;
     punto_encuentro: string;
     valor: number | null;

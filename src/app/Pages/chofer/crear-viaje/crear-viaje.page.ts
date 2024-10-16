@@ -52,7 +52,9 @@ export class CrearViajePage implements OnInit {
 
   grabar(){
     this.cargandoFlag = true;
-    this.viaje.chofer = localStorage.getItem('idUsuario');
+    if (this.viaje.chofer) {
+      this.viaje.chofer = localStorage.getItem('idUsuario') || '';
+    }
   
     this.crud.grabar(this.viaje).then(()=>{
       Swal.fire({
