@@ -1,24 +1,23 @@
 <app-menu></app-menu>
 
-<ion-content  [fullscreen]="true">
-  <app-header></app-header>  
+<ion-content [fullscreen]="true">
+  <app-header></app-header>
   <h2>Mis viajes</h2>
   <section class="card">
+    <p>Destino:</p>
     <div class="hijo">
       <p>Cantidad de Asientos:</p>
       <p>Asientos ocupados:</p>
     </div>
-    <div>
-      <p>Valor pasaje:</p>
-    </div>
-    <div>
-      <p>Punto de encuentro:</p>
-    </div>
-    <div>
-      <p>Pasajeros:</p>
+    <p>Valor pasaje:</p>
+    <p>Punto de encuentro:</p>
+    <p>Fecha:</p>
+    <p>Pasajeros:</p>
+    <div style="text-align: center;">
+      <ion-button color="primary">QR<ion-icon name="qr-code"></ion-icon></ion-button>
+      <ion-button color="primary">Eliminar<ion-icon name="trash-outline"></ion-icon></ion-button>
     </div>
   </section>
-
 </ion-content>
 
 <app-toolbar></app-toolbar>

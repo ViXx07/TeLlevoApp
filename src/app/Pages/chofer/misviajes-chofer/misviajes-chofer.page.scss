@@ -2,11 +2,24 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    margin-top: 1rem;
 
     border: 1px gray solid;
+    margin: 0 5% 0;
+    padding-bottom: 1rem;
+    border-radius: 2rem;
+}
+.card p, ion-button {
+    margin: 0.8rem 1rem 0 1rem;
+}
+ion-button{
+    width: 8rem;
 }
 
 .card .hijo{
     display: flex; flex-direction: row; gap: 3rem;
+}
+
+
+.hijo p {
+    width: 50%;
 }
