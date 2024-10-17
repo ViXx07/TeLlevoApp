@@ -1,4 +1,4 @@
-import { NONE_TYPE } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Viaje,viajeVacio } from 'src/app/model/Viaje';
@@ -18,12 +18,15 @@ export class CrearViajePage implements OnInit {
   errNumPasajeros   : boolean | null = null;
   errHoraInicio     : boolean | null = null;
   cargandoFlag      : boolean        = false;
-
+  idChofer : string|null = localStorage.getItem('idUsuario')
   constructor(private crud:CrudViajeService,
               private navCtrl:NavController,
   ) { }
 
   ngOnInit() {}
+
+
+
   valDestino()       { this.errDestino = this.viaje.destino !== '';}
   valMonto()         { this.errMonto = this.viaje.valor !== null;}
   valPuntoEncuentro(){ this.errPuntoEncuentro = this.viaje.punto_encuentro !== ''  ;}
@@ -52,29 +55,28 @@ export class CrearViajePage implements OnInit {
 
   grabar(){
     this.cargandoFlag = true;
-    if (this.viaje.chofer) {
-      this.viaje.chofer = localStorage.getItem('idUsuario') || '';
-    }
-  
-    this.crud.grabar(this.viaje).then(()=>{
-      Swal.fire({
-        icon:'success',
-        title: 'Viaje creado con éxito!',
-        text: 'Esperemos el viaje c:',
-        confirmButtonText: 'Aceptar',
-        heightAuto: false
-      }).then(()=>this.navCtrl.navigateRoot('home-chofer'))
-      
-    }).catch((err)=>{
-      Swal.fire({
-        icon:'error',
-        title: 'Hubo un error!',
-        text: 'Error al crear tu viaje ;C',
-        confirmButtonText: 'Reintentar',
-        heightAuto: false
+    if (this.idChofer) {
+      this.viaje.chofer = this.idChofer;
+      this.crud.grabar(this.viaje).then(()=>{
+        Swal.fire({
+          icon:'success',
+          title: 'Viaje creado con éxito!',
+          text: 'Esperemos el viaje c:',
+          confirmButtonText: 'Aceptar',
+          heightAuto: false
+        }).then(()=>this.navCtrl.navigateRoot('home-chofer'))
+        
+      }).catch((err)=>{
+        Swal.fire({
+          icon:'error',
+          title: 'Hubo un error!',
+          text: 'Error al crear tu viaje ;C',
+          confirmButtonText: 'Reintentar',
+          heightAuto: false
+        })   
       })
-    })
-    /* cargando forzado para darle tiempo como si procesar es complicado */
+    }
+      /* cargando forzado para darle tiempo como si procesar es complicado */
     setTimeout(()=>this.cargandoFlag=false, 2000)
 
   }

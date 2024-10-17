@@ -36,14 +36,14 @@ export class CrudViajeService {
     return this.afs.collection('viaje').doc(viaje.uid).delete();
   }
 
-  agregarAlViaje(id: string, idPasajero: string){
+/*   agregarAlViaje(id: string, idPasajero: string){
     const viajeRef = this.afs.collection('viaje').doc(id);
     viajeRef.update({
       pasajeros : firebase.firestore.FieldValue.arrayUnion(idPasajero)
     })
-  }
+  } */
 
-/*   agregarAlViaje(id: string, idPasajero: string){
+  agregarAlViaje(id: string, idPasajero: string){
     const viaje = this.afs.collection('viaje').doc(id);
 
     return viaje.ref.get().then(dato => {
@@ -62,6 +62,6 @@ export class CrudViajeService {
         return Promise.resolve();
       }
     })
-  } */
+  }
 
 }

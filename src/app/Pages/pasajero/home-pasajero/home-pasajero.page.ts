@@ -28,15 +28,13 @@ export class HomePasajeroPage implements OnInit {
 
 
 listar() {
-  this.crudViaje.listar().subscribe(
-    data => {
+  this.crudViaje.listar().subscribe(data => {
       this.viajes = data;
-      this.viajes.forEach(viaje => {
-        this.crudChofer.getChofer(viaje.chofer).subscribe(
-          data => {
-            viaje.chofer=data.nombre + ' ' + data.apellido;
-          }
-        );
+      console.log(this.viajes);
+      this.viajes.forEach((viaje) => {
+        this.crudChofer.getChofer(viaje.chofer).subscribe( dataChofer =>{
+          viaje.chofer= dataChofer.nombre+' '+dataChofer.apellido
+        })
       });
     },
     error => {
