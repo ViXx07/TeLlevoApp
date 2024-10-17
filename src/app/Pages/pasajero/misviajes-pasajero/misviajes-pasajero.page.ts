@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-misviajes-pasajero',
@@ -8,10 +8,15 @@ import { MenuController } from '@ionic/angular';
 })
 export class MisviajesPasajeroPage implements OnInit {
 
-  constructor(private menu: MenuController) { }
+  constructor(private menu: MenuController,
+              private navCtrl: NavController,
+  ) { }
 
   ngOnInit() {
     this.menu.enable(true);
+    if (localStorage.getItem('perfil')==='chofer') {
+      this.navCtrl.navigateRoot('misviajes-chofer')
+    }
   }
 
 }

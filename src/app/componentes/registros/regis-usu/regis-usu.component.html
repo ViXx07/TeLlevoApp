@@ -53,11 +53,14 @@
       </select>
     </div>
     <hr>
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="usuario.fecha_nac">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <div class="divDate">
+      <label for="">Fecha de nacimiento * <small *ngIf="errNacimiento" class="errores">Escoja una fecha</small></label>
+      <mat-form-field appearance="outline">
+        <input matInput [matDatepicker]="picker" [max]="limite" placeholder="Selecciona una fecha" [(ngModel)]="usuario.fecha_nac" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
     <hr>
     <div class="inputs">
       <label for="">Correo electronico * <small *ngIf="errCorreo" class="errores">Ingrese correo valido</small></label>
