@@ -28,7 +28,7 @@ export class HomeChoferPage implements OnInit {
 
       accessToken: environment.MAPBOX_ACCESS_TOKEN,
       container: 'mapa-box',
-      style: 'mapbox://styles/mapbox/light-v10',
+      style: 'mapbox://styles/mapbox/streets-v11',
       center:[-33.59846466294888, -70.57880159991507],
       zoom:12,
       collectResourceTiming: false,
