@@ -51,13 +51,14 @@ export class CrudViajeService {
         const pasajeros = data.pasajeros || [];
         if (!pasajeros.includes(idPasajero)) {
           pasajeros.push(idPasajero);
-          return viaje.update({ pasajeros });
+          data.contadorPasajeros = (data.contadorPasajeros || 0)-1;
+          return viaje.update({ pasajeros,contadorPasajeros:data.contadorPasajeros });
         } else {
-          alert("error1")
+          alert("ya estas en el viaje")
           return Promise.resolve();
         }
       } else {
-        alert("error2")
+        alert("error raro")
         return Promise.resolve();
       }
     })

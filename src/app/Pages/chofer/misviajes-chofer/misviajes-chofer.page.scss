@@ -1,0 +1,12 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 1rem;
+
+    border: 1px gray solid;
+}
+
+.card .hijo{
+    display: flex; flex-direction: row; gap: 3rem;
+}
