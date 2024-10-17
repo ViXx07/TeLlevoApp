@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { Viaje } from 'src/app/model/Viaje';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { NavController } from '@ionic/angular';
-import firebase from 'firebase/compat';
 @Injectable({
   providedIn: 'root'
 })

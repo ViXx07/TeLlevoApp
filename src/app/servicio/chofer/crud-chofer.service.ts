@@ -11,18 +11,7 @@ export class CrudChoferService {
   constructor( private afs : AngularFirestore) { }
   
   grabarChofer(chofer : Chofer){
-    return this.afs.collection('chofer').doc(chofer.uid).set({
-      uid               : chofer.uid,
-      rut               : chofer.rut,
-      nombre            : chofer.nombre,
-      apellido          : chofer.apellido,
-      correoElectronico : chofer.correoElectronico,
-      genero            : chofer.genero,
-      fecha_nac         : chofer.fecha_nac,
-      modelo            : chofer.modelo,
-      patente           : chofer.patente,
-      tipo              : chofer.tipo,
-    });
+    return this.afs.collection('chofer').doc(chofer.uid).set(chofer);
   }
 
   modificarChofer(chofer : Chofer){
