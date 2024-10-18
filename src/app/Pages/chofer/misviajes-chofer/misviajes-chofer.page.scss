@@ -2,12 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-
     border: 1px gray solid;
-    margin: 0 5% 0;
+    margin: 1rem 5% 0;
     padding-bottom: 1rem;
     border-radius: 2rem;
 }
+
+.finalizado{background-color: rgba(214, 254, 255, 0.399);}
+.enProceso{background-color: rgba(214, 255, 214, 0.399);}
+
 .card p, ion-button {
     margin: 0.8rem 1rem 0 1rem;
 }

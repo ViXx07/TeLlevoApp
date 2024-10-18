@@ -2,20 +2,24 @@
 
 <ion-content [fullscreen]="true">
   <app-header></app-header>
-  <h2>Mis viajes</h2>
-  <section class="card">
-    <p>Destino:</p>
-    <div class="hijo">
-      <p>Cantidad de Asientos:</p>
-      <p>Asientos ocupados:</p>
+  <section class="card" *ngFor="let viaje of viajes" >
+    <div>
+      <p>Destino: <strong>{{viaje.destino}}</strong></p>
+      <p *ngIf="!viaje.finalizado" >En proceso</p>
+      <p *ngIf="viaje.finalizado">Finalizado</p>
     </div>
-    <p>Valor pasaje:</p>
-    <p>Punto de encuentro:</p>
-    <p>Fecha:</p>
-    <p>Pasajeros:</p>
+    <div class="hijo">
+      <p>Cantidad de Asientos: <strong>{{viaje.numPasajeros}}</strong></p>
+      <p>Asientos ocupados: <strong>{{viaje.numPasajeros-viaje.contadorPasajeros}}</strong></p>
+    </div>
+    <p>Valor pasaje: <strong>${{viaje.valor}}</strong></p>
+    <p>Punto de encuentro: <strong>{{viaje.punto_encuentro}}</strong></p>
+    <p>Fecha: <strong>S/F</strong></p>
+    <p>Pasajeros: <strong>Sin Pasajeros</strong></p>
     <div style="text-align: center;">
       <ion-button color="primary">QR<ion-icon name="qr-code"></ion-icon></ion-button>
-      <ion-button color="primary">Eliminar<ion-icon name="trash-outline"></ion-icon></ion-button>
+      <ion-button (click)="finalizarViaje(viaje.uid)" color="primary">Finalizar<ion-icon name="hand-left-outline"></ion-icon></ion-button>
+      <ion-button (click)="eliminarViaje(viaje.uid)"color="primary">Eliminar<ion-icon name="trash-outline"></ion-icon></ion-button>
     </div>
   </section>
 </ion-content>

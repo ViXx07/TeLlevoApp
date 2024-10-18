@@ -30,7 +30,6 @@ export class HomePasajeroPage implements OnInit {
 listar() {
   this.crudViaje.listar().subscribe(data => {
       this.viajes = data;
-      console.log(this.viajes);
       this.viajes.forEach((viaje) => {
         this.crudChofer.getChofer(viaje.chofer).subscribe( dataChofer =>{
           viaje.chofer= dataChofer.nombre+' '+dataChofer.apellido
