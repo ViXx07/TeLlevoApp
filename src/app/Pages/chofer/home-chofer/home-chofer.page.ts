@@ -17,13 +17,14 @@ export class HomeChoferPage implements OnInit {
   direccion: string = '';
   direcciones: Direccion[] = [];
   dire_seleccion = '';
+  marcadorActual:mapboxgl.Marker | null = null;
   ruta='https://api.mapbox.com/geocoding/v5/mapbox.places/XXXXX.json?access_token=pk.eyJ1IjoianVha28xMDUiLCJhIjoiY20yY3F4MzFuMGxjZjJpbzh1MmtwN3RkeSJ9.eq0Klw01jvADGQMMR8THBw'
   geometria='https://api.mapbox.com/directions/v5/mapbox/driving/-70.57881856510504,-33.59844199173414;LNG,LAT?geometries=geojson&access_token=pk.eyJ1IjoianVha28xMDUiLCJhIjoiY20yY3F4MzFuMGxjZjJpbzh1MmtwN3RkeSJ9.eq0Klw01jvADGQMMR8THBw'
 
   constructor(
     private navCtrl: NavController,
     private mapboxServicio: ServicioMapboxService,
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
   ngOnInit():void { }
@@ -73,43 +74,51 @@ export class HomeChoferPage implements OnInit {
     };
 
     this.direccion_seleccionada(ev);
-/*     var nueva_ruta = this.ruta.replaceAll('XXXXX', this.direccion);
-    this.http.get(nueva_ruta).subscribe((data)=> {
-      let direcciones = JSON.parse(JSON.stringify(data))['features'];
-      this.direcciones = [];
-
-      for (let index = 0; index < direcciones.length; index++) {
-        const element = direcciones[index];
-        let dire:Direccion = {
-          nombre: element.place_name,
-          lng: element.center[0],
-          lat: element.center[1]
-        };
-        this.direcciones.push(dire);
-      }
-    }); */
   }
 
   direccion_seleccionada(ev){
-    console.log(ev.detail.value)
-
     const lat = ev.detail.value["lat"];
     const lng = ev.detail.value["lng"];
-    console.log(`Latitud: ${lat}, Longitud: ${lng}`);
-    
-    var texto1=this.geometria.replaceAll('LNG', lng)
-    var texto2=texto1.replaceAll('LAT', lat)
-    this.geometria=texto2;
 
-    console.log('url de ruta generada: ', this.geometria)
+    // Nueva url de ruta 
+    let nueva_ruta = this.geometria.replaceAll('LNG', lng).replaceAll('LAT', lat);
+    this.geometria = nueva_ruta;
 
+    console.log('url nueva ruta: ', this.geometria);
+
+    // eliminar ruta y marcador anterior 
+    this.eliminarRuta()
+    this.eliminarMarcador()
+    // Se agrega el nuevo 
     this.marcador(lng, lat);
-
+    // Nueva ruta
     this.generar_ruta()
   }
 
   marcador(lng:number,lat:number){
-    new mapboxgl.Marker({color:'yellow'}).setLngLat([lng,lat]).addTo(this.map)
+    this.marcadorActual = new mapboxgl.Marker({color:'#217cfc'})
+    .setLngLat([lng,lat]).addTo(this.map);
+  }
+
+  borrarDireccion(){
+    this.direcciones = []
+    this.mapa()
+  }
+
+  eliminarMarcador() {
+    if (this.marcadorActual) {
+      this.marcadorActual.remove();
+      this.marcadorActual = null;
+    }
+  }
+
+  eliminarRuta() {
+    if (this.map.getLayer('route')) {
+      this.map.removeLayer('route');
+    }
+    if (this.map.getSource('route')) {
+      this.map.removeSource('route');
+    }
   }
 
   mapa(){
@@ -118,7 +127,7 @@ export class HomeChoferPage implements OnInit {
       accessToken: environment.MAPBOX_ACCESS_TOKEN,
       container: 'mapa-box',
       style: 'mapbox://styles/mapbox/streets-v12',
-      center:[ -70.57880159991507,-33.59846466294888],
+      center:[ -70.57879639711527,-33.59850407643264],
       zoom:16,
       collectResourceTiming: false,
     });
@@ -127,7 +136,8 @@ export class HomeChoferPage implements OnInit {
 
   generar_ruta(){
     this.http.get(this.geometria).subscribe((data:any)=>{
-      console.log(data.routes[0].geometry)
+      console.log(data.routes[0].geometry);
+
       this.map.addSource('route',{
         type:'geojson',
         data:{
@@ -136,6 +146,7 @@ export class HomeChoferPage implements OnInit {
           properties:{}
         }
       });
+
       this.map.addLayer({
         id:'route',
         type:'line',
@@ -145,12 +156,13 @@ export class HomeChoferPage implements OnInit {
           "line-join":'round'
         },
         paint:{
-          "line-color":'blue',
+          "line-color":'#217cfc',
           "line-width":3
         }
       })
     })
   }
+
 
 }
 

@@ -9,6 +9,8 @@ export interface Viaje {
     punto_encuentro: string;
     valor: number | null;
     numPasajeros: number | null;   
+    latitud: number | null;
+    longitud: number | null;
 } 
 
 export function viajeVacio(): Viaje {
@@ -21,5 +23,7 @@ export function viajeVacio(): Viaje {
         punto_encuentro: '',
         valor: null ,
         numPasajeros: null,
+        latitud: null,
+        longitud: null
     };
 }; 
