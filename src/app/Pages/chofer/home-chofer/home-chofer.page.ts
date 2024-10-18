@@ -3,7 +3,7 @@ import { NavController } from '@ionic/angular';
 //Importaciones para el mapa 
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
-import { Feature, ServicioMapboxService } from './servicio-mapbox.service';
+import { Feature, ServicioMapboxService } from 'src/app/servicio/mapa/servicio-mapbox.service';
 import { HttpClient } from '@angular/common/http';
 import { Direccion } from 'src/app/model/Direccion';
 
@@ -86,10 +86,7 @@ export class HomeChoferPage implements OnInit {
 
     console.log('url nueva ruta: ', this.geometria);
 
-    // eliminar ruta y marcador anterior 
-    this.eliminarRuta()
-    this.eliminarMarcador()
-    // Se agrega el nuevo 
+    // Se agrega el marcador
     this.marcador(lng, lat);
     // Nueva ruta
     this.generar_ruta()
