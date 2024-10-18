@@ -3,7 +3,23 @@
 <ion-content  [fullscreen]="true">
   <app-header></app-header>  
   <!--Programar desde aqui: -->
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div style="position: relative;">
+          <ion-searchbar debounce=500 (ionInput)="busqueda($event)" [value]="dire_seleccion" placeholder="Ingrese dirección"></ion-searchbar>
+          <div style="position: absolute; width: 100%; z-index: 999;">
+            <ion-list lines="none">
+              <ion-item button *ngFor="let direccion of direcciones" (click)="seleccionar(direccion)">
+                {{direccion.nombre}}
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
   <div id="mapa-box" style="width: 100%; height: 100%;"></div>
 </ion-content>
 
