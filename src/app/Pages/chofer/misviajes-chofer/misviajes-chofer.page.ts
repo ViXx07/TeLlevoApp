@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { CrudPasajeroService } from 'src/app/servicio/pasajero/crud-pasajero.service';
 import { CrudViajeService } from 'src/app/servicio/viaje/crud-viaje.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -10,7 +11,8 @@ import Swal from 'sweetalert2';
 export class MisviajesChoferPage implements OnInit {
 
   constructor(private navCtrl: NavController,
-              private crudViaje: CrudViajeService
+              private crudViaje: CrudViajeService,
+              private crudPasajero: CrudPasajeroService,
   ) { }
 
   ngOnInit() {
@@ -19,7 +21,7 @@ export class MisviajesChoferPage implements OnInit {
     }
     this.cargandoFlag=true;
     this.listar()
-    setTimeout(()=>this.cargandoFlag=false,2000)
+    setTimeout(()=>this.cargandoFlag=false,1000)
     
   }
   
