@@ -9,19 +9,19 @@ import { NavController } from '@ionic/angular';
 
 export class CrudViajeService {
 
-  constructor(private afs:AngularFirestore,
-              private navCtrl: NavController
+  constructor(private afs: AngularFirestore,
+    private navCtrl: NavController
   ) { }
 
-  grabar(viaje:Viaje){
+  grabar(viaje: Viaje) {
     return this.afs.collection('viaje').add(viaje);
   }
 
-  listar(): Observable<Viaje[]>{
-    return this.afs.collection<Viaje>('viaje').valueChanges({idField:'uid'})
+  listar(): Observable<Viaje[]> {
+    return this.afs.collection<Viaje>('viaje').valueChanges({ idField: 'uid' })
   }
-  
-  modificarViaje(viaje: Viaje){
+
+  modificarViaje(viaje: Viaje) {
     return this.afs.collection('viaje').doc(viaje.uid).update({
       destino: viaje.destino,
       hora_inicio: viaje.hora_inicio,
@@ -30,19 +30,19 @@ export class CrudViajeService {
       numPasajeros: viaje.numPasajeros,
     });
   }
-  
-  eliminarViaje(viaje: Viaje){
-    return this.afs.collection('viaje').doc(viaje.uid).delete();
+
+  eliminarViaje(idViaje : string) {
+    return this.afs.collection('viaje').doc(idViaje).delete();
   }
 
-/*   agregarAlViaje(id: string, idPasajero: string){
+  /*   agregarAlViaje(id: string, idPasajero: string){
     const viajeRef = this.afs.collection('viaje').doc(id);
     viajeRef.update({
       pasajeros : firebase.firestore.FieldValue.arrayUnion(idPasajero)
-    })
-  } */
+      })
+      } */
 
-  agregarAlViaje(id: string, idPasajero: string){
+  agregarAlViaje(id: string, idPasajero: string) {
     const viaje = this.afs.collection('viaje').doc(id);
 
     return viaje.ref.get().then(dato => {
@@ -51,16 +51,27 @@ export class CrudViajeService {
         const pasajeros = data.pasajeros || [];
         if (!pasajeros.includes(idPasajero)) {
           pasajeros.push(idPasajero);
-          return viaje.update({ pasajeros });
+          data.contadorPasajeros = (data.contadorPasajeros || 0) - 1;
+          return viaje.update({ pasajeros, contadorPasajeros: data.contadorPasajeros });
         } else {
-          alert("error1")
+          alert("ya estas en el viaje")
           return Promise.resolve();
         }
       } else {
-        alert("error2")
+        alert("error raro")
         return Promise.resolve();
       }
     })
+  }
+
+
+  listarViajesChofer(idChofer: string) {
+    return this.afs.collection('viaje', ref => ref.where('chofer', '==', idChofer)).valueChanges({idField: 'uid'})};
+  
+  modificarEstadoViaje(idViaje : string) {
+    return this.afs.collection('viaje').doc(idViaje).update({
+      finalizado:true,
+    });
   }
 
 }

@@ -19,6 +19,8 @@ export class CrearViajePage implements OnInit {
   errHoraInicio     : boolean | null = null;
   cargandoFlag      : boolean        = false;
   idChofer : string|null = localStorage.getItem('idUsuario')
+  
+
   constructor(private crud:CrudViajeService,
               private navCtrl:NavController,
   ) { }
@@ -56,6 +58,7 @@ export class CrearViajePage implements OnInit {
   grabar(){
     this.cargandoFlag = true;
     if (this.idChofer) {
+      this.viaje.contadorPasajeros = this.viaje.numPasajeros;
       this.viaje.chofer = this.idChofer;
       this.crud.grabar(this.viaje).then(()=>{
         Swal.fire({
