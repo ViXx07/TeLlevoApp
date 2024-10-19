@@ -3,10 +3,10 @@
 <ion-content [fullscreen]="true">
   <app-header></app-header>
   <section class="card" *ngFor="let viaje of viajes" >
-    <div>
+    <div class="hijo">
       <p>Destino: <strong>{{viaje.destino}}</strong></p>
-      <p *ngIf="!viaje.finalizado" >En proceso</p>
-      <p *ngIf="viaje.finalizado">Finalizado</p>
+      <p style="color: green;" *ngIf="!viaje.finalizado" >En proceso</p>
+      <p style="color: blue;" *ngIf="viaje.finalizado">Finalizado</p>
     </div>
     <div class="hijo">
       <p>Cantidad de Asientos: <strong>{{viaje.numPasajeros}}</strong></p>
@@ -17,11 +17,14 @@
     <p>Fecha: <strong>S/F</strong></p>
     <p>Pasajeros: <strong>Sin Pasajeros</strong></p>
     <div style="text-align: center;">
-      <ion-button color="primary">QR<ion-icon name="qr-code"></ion-icon></ion-button>
-      <ion-button (click)="finalizarViaje(viaje.uid)" color="primary">Finalizar<ion-icon name="hand-left-outline"></ion-icon></ion-button>
-      <ion-button (click)="eliminarViaje(viaje.uid)"color="primary">Eliminar<ion-icon name="trash-outline"></ion-icon></ion-button>
+      <ion-button [disabled]="viaje.finalizado" color="primary">QR<ion-icon name="qr-code"></ion-icon></ion-button>
+      <ion-button [disabled]="viaje.finalizado" (click)="finalizarViaje(viaje.uid)" color="primary">Finalizar<ion-icon name="hand-left-outline"></ion-icon></ion-button>
+      <ion-button [disabled]="viaje.finalizado" (click)="eliminarViaje(viaje.uid)"color="primary">Eliminar<ion-icon name="trash-outline"></ion-icon></ion-button>
     </div>
   </section>
+  <div *ngIf="cargandoFlag" class="spinner">
+    <mat-spinner style="top: 10rem"></mat-spinner>
+  </div>
 </ion-content>
 
 <app-toolbar></app-toolbar>
