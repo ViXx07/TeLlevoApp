@@ -100,6 +100,7 @@ export class HomeChoferPage implements OnInit {
   borrarDireccion(){
     this.direcciones = []
     this.mapa()
+    this.eliminarMarcador()
   }
 
   eliminarMarcador() {
