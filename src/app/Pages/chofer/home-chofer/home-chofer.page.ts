@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 //Importaciones para el mapa 
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
@@ -17,17 +18,21 @@ export class HomeChoferPage implements OnInit {
   direccion: string = '';
   direcciones: Direccion[] = [];
   dire_seleccion = '';
+  lat_seleccion: number | null = null;
+  lng_seleccion: number | null = null;
+  dire_valida: boolean = false;
   marcadorActual:mapboxgl.Marker | null = null;
   ruta='https://api.mapbox.com/geocoding/v5/mapbox.places/XXXXX.json?access_token=pk.eyJ1IjoianVha28xMDUiLCJhIjoiY20yY3F4MzFuMGxjZjJpbzh1MmtwN3RkeSJ9.eq0Klw01jvADGQMMR8THBw'
   geometria='https://api.mapbox.com/directions/v5/mapbox/driving/-70.57881856510504,-33.59844199173414;LNG,LAT?geometries=geojson&access_token=pk.eyJ1IjoianVha28xMDUiLCJhIjoiY20yY3F4MzFuMGxjZjJpbzh1MmtwN3RkeSJ9.eq0Klw01jvADGQMMR8THBw'
 
   constructor(
     private navCtrl: NavController,
+    private router: Router,
     private mapboxServicio: ServicioMapboxService,
     private http: HttpClient,
   ) { }
 
-  ngOnInit():void { }
+  ngOnInit():void {}
 
   ionViewWillEnter(){
     if (localStorage.getItem('perfil')==='pasajero') {
@@ -36,12 +41,33 @@ export class HomeChoferPage implements OnInit {
     this.mapa() 
   }
 
+  navPagina(page: string){
+    this.router.navigate([page]).then(()=>{
+      location.reload();
+    })
+  }
+
+  validarDireccion(): boolean {
+    if (this.dire_seleccion != '' && this.lat_seleccion != null && this.lng_seleccion != null ){
+      this.dire_valida = true;
+    } else
+      this.dire_valida;
+    return this.dire_valida
+  }
+
+  crearViaje() {
+    if (this.validarDireccion()) {
+      this.navPagina('/crear-viaje/');
+      alert("redirecciona");
+    } else {
+      alert('Debe seleccionar una dirección válida antes de crear el viaje.');
+    }
+  }
+
   busqueda(event: any){
     const busqueda = event.target.value.toLowerCase();
     console.log('Valor ingresado en el searchbar:', busqueda); 
     
-    
-
     if (busqueda && busqueda.length > 0){
       this.mapboxServicio
         .buscarDireccion(busqueda)
@@ -62,6 +88,8 @@ export class HomeChoferPage implements OnInit {
   seleccionar(direccion: Direccion){
     console.log('Dirección seleccionada:', direccion);
     this.dire_seleccion = direccion.nombre;
+    this.lat_seleccion = direccion.lat;
+    this.lng_seleccion = direccion.lng;
     this.direcciones = [];
 
     const ev = {
