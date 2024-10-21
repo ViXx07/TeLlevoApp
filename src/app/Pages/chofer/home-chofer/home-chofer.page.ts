@@ -55,10 +55,11 @@ export class HomeChoferPage implements OnInit {
     return this.dire_valida
   }
 
+  // Redirecciona a pagina crear viaje 
   crearViaje() {
     if (this.validarDireccion()) {
+      localStorage.setItem("nombre_direccion", this.dire_seleccion);
       this.navPagina('/crear-viaje/');
-      alert("redirecciona");
     } else {
       alert('Debe seleccionar una dirección válida antes de crear el viaje.');
     }
@@ -157,7 +158,7 @@ export class HomeChoferPage implements OnInit {
       zoom:16,
       collectResourceTiming: false,
     });
-    new mapboxgl.Marker({color:'yellow'}).setLngLat([-70.57880159991507,-33.59846466294888]).addTo(this.map)
+    new mapboxgl.Marker({color:'#FFB800'}).setLngLat([-70.57880159991507,-33.59846466294888]).addTo(this.map)
   }
 
   generar_ruta(){

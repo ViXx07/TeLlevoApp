@@ -10,16 +10,21 @@ import { CrudViajeService } from 'src/app/servicio/viaje/crud-viaje.service';
 })
 export class CrearViajePage implements OnInit {
   viaje = viajeVacio();
+  direccion: string = '';
 
   constructor(private crud:CrudViajeService,
   ) { }
 
   ngOnInit() {
-
+    const direccion_guardada = localStorage.getItem("nombre_direccion");
+    if (direccion_guardada != null) {
+      this.viaje.destino = direccion_guardada;
+    }
   }
 
   grabar(){
     this.crud.grabar(this.viaje).then(()=>{
+      localStorage.removeItem("nombre_direccion");
       alert('Viaje registrado')
     }).catch((err)=>{
       console.log("error:", err)
