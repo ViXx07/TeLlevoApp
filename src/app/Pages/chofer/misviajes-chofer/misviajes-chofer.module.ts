@@ -9,6 +9,7 @@ import { MisviajesChoferPageRoutingModule } from './misviajes-chofer-routing.mod
 import { MisviajesChoferPage } from './misviajes-chofer.page';
 
 import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { ModuloModule } from 'src/app/componentes/modulo/modulo.module';
     FormsModule,
     IonicModule,
     MisviajesChoferPageRoutingModule,
-    ModuloModule
+    ModuloModule,
+    MatProgressSpinnerModule,
   ],
   declarations: [MisviajesChoferPage]
 })

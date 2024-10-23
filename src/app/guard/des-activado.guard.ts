@@ -13,7 +13,7 @@ export class desActivadoGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(localStorage.getItem('usuario')){
+      if(localStorage.getItem('idUsuario')){
         if (localStorage.getItem('perfil')=="chofer") {
           this.navCtrl.navigateForward('home-chofer');        
         } else {

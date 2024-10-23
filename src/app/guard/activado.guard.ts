@@ -16,7 +16,7 @@ export class activadoGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(localStorage.getItem('usuario')){
+      if(localStorage.getItem('idUsuario')){
         return true;
       }else{
         this.navCtrl.navigateRoot('login');        

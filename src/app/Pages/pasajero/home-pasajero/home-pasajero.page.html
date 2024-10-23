@@ -2,11 +2,9 @@
 
 <ion-content  [fullscreen]="true">
   <app-header></app-header>  
-  <!--Programar desde aqui: -->
-  <div class="ion-searchbar">
-    <ion-searchbar style="margin-top: 70px;" animated="true" placeholder="Ingresa una direccion"></ion-searchbar>
-  </div> 
-  <div id="mapa-box" style="width: 100%; height: 100%;"></div>
+  <section *ngFor="let viaje of viajes ">
+     <app-viajes [destino]="viaje.destino" [hora]="viaje.hora_inicio ?? 'Hora no disponible'" [fecha]="'S/F'" [monto]="(viaje.valor ?? 0).toString()" [chofer]="viaje.chofer" [idViaje]="viaje.uid ?? '0'" [idUsuario]="idPasajero"></app-viajes>
+  </section>
 </ion-content>
 
 <app-toolbar></app-toolbar>
